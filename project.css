@@ -1,0 +1,49 @@
+#projects {
+    text-align: center;
+    z-index: 999999;
+    -webkit-transform: translate3d(0, 150px, 2px);
+    -webkit-transform-style: preserve-3d;
+}
+
+.project {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    margin: 0 50px;
+    vertical-align: middle;
+    position: relative;
+    overflow: visible;
+}
+
+.project.selected > .project-image {
+    -webkit-transform: rotateX(-10deg) translate3d(0, -50px, 200px);
+    height: 301px; /* hack to force redraw and prevent pixelation caused by filter */
+}
+
+.project.selected > .project-image-shadow {
+    opacity: 0.1;
+}
+
+.project > * {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.project-image {
+    width: 300px;
+    height: 300px;
+    -webkit-transform: translate3d(0,0,10px);
+    -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.5s, opacity 0.5s;
+}
+
+.project-image-shadow {
+    opacity: 0.5;
+    -webkit-transform: translate3d(0,3px,0);
+    -webkit-transition: opacity 0.5s;
+}
+
+#tabletop.blurred .project:not(.selected) > .project-image, 
+#tabletop.blurred .project:not(.selected) > .project-image-shadow {
+    -webkit-filter: blur(2.5px); /* the blur value is low because the anti-aliasing effect is not good */
+}

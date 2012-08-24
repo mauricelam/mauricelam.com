@@ -1,0 +1,5 @@
+{
+    "id":"transit",
+    "name":"Transit - CUMTD",
+    "description":"Transit is an Android app that lets you check the bus time of CUMTD (Champaign Urbana Mass Transit District) in real time. Transit works by opening a portal to the information on the STOPwatch system by CU MTD, so the bus arrival times are updated real-time according to traffic situations."
+}
