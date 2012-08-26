@@ -1,5 +1,6 @@
 {
     "id":"youpivot",
     "name":"YouPivot &amp; Timemarks",
-    "description":"YouPivot is a revolutionary search technique for your personal history. It is also a research project I am working on. It is implemented in the form of a background daemon and a chrome extension so your browser history is recorded into a database and viewed in a visual and organized way in a browser window. I am responsible for creating and maintaining the front end and the extension. "
+    "types":["research","chromeextension"],
+    "description":"YouPivot is a revolutionary search technique for your personal history. It is also a research project I am working on. It is implemented in the form of a background daemon and a chrome extension so your browser history is recorded into a database and viewed in a visual and organized way in a browser window. "
 }

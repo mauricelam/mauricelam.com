@@ -1,5 +1,6 @@
 {
     "id":"cast",
     "name":"CAST",
-    "description":"CAST is the acronym for Composition Analyzing and Statistics Tool. It is a project I've done in high school (or secondary school) to provide basic statistical details about a plain text file uploaded to a server. Essentially it is an extremely simple webapp, but (like other things I do) with sophisticated user interface elements. It was done as part of a project for an exam (though I can safely say it hugely exceeds what the exam expects). "
+    "types":["webapp"],
+    "description":"CAST is the acronym for Composition Analyzing and Statistics Tool. It is a project I've done in high school (or secondary school) to provide basic statistical details about a plain text file uploaded to a server. Essentially it is an extremely simple webapp, but with fun and elegant user interface elements. It was done as part of a project for an exam. "
 }

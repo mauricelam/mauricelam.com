@@ -7,6 +7,7 @@ var Overlay = function () { this.init.apply(this, arguments); };
     self.init = function (id) {
         if (!Overlay.sharedElement) {
             Overlay.sharedElement = document.getElementById('overlay');
+            Overlay.sharedElement.addEventListener('click', Overlay.click, false);
         }
         this.id = id;
         this.content = null;
@@ -31,10 +32,13 @@ var Overlay = function () { this.init.apply(this, arguments); };
 
     self.contentLoaded = function (event) {
         var xhr = event.target;
-        var content = JSON.parse(xhr.responseText);
-        this.content = '<div class="name">' + content.name + '</div>' + '<div class="description">' + content.description + '</div>';
+        this.content = JSON.parse(xhr.responseText);
         this.displayContent();
     };
+
+    self.createOverlayHTML = function () {
+        return html;
+    }
 
     self.hide = function () {
         this.visible = false;
@@ -44,8 +48,34 @@ var Overlay = function () { this.init.apply(this, arguments); };
 
     self.displayContent = function () {
         if (this.visible) {
-            Overlay.sharedElement.innerHTML = this.content;
+            Overlay.sharedElement.innerHTML = '';
+
+            var nameTag = document.createElement('div');
+            nameTag.classList.add('name');
+            nameTag.innerHTML = this.content.name;
+            Overlay.sharedElement.appendChild(nameTag);
+
+            var divider = document.createElement('div');
+            divider.classList.add('divider');
+            Overlay.sharedElement.appendChild(divider);
+
+            var types = this.content.types;
+            if (types) {
+                for (var i=0, count=types.length; i < count; i++) {
+                    var label = new TypeLabel(types[i]);
+                    Overlay.sharedElement.appendChild(label.element);
+                }
+            }
+
+            var description = document.createElement('div');
+            description.classList.add('description');
+            description.innerHTML = this.content.description;
+            Overlay.sharedElement.appendChild(description);
         }
+    };
+
+    Overlay.click = function (event) {
+        event.stopPropagation();
     };
 
 })();

@@ -1,5 +1,6 @@
 {
     "id":"loc",
     "name":"Loc",
+    "types":["androidapp","concept"],
     "description":"Proof-of-concept location based social application. With loc, you can share your location and feelings with the short note as you travel around. After a day of travel with your phone, you can review where you have been, and post a loc for that day much like you would create a blog post. Loc is the perfect companion when you go on a trip, because loc logs down everything and you can open loc to recall your wonderful memories."
 }

@@ -1,5 +1,6 @@
 {
     "id":"maps",
     "name":"ScrollMaps",
+    "types":["chromeextension","safariextension"],
     "description":"ScrollMaps is a browser extension to let you use the scroll wheel / scrolling gesture to scroll in Google Maps rather than zooming. This extension is designed for the Mac trackpads but should also work on PCs with any scrolling devices (although with 1D scroll wheel you only get scrolling in vertical direction). "
 }

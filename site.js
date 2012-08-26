@@ -4,14 +4,15 @@ var scrollPosition = 0;
 var controller = null;
 
 function scroll (event) {
+    var wheelDelta = (event.wheelDeltaX) ? event.wheelDeltaX : (event.axis == 1) ? event.detail * -40 : 0;
     event.stopPropagation();
     event.preventDefault();
-    var dx = event.wheelDeltaX;
+    var dx = wheelDelta;
     scrollTo(scrollPosition - dx/4);
 }
 
 function scrollTo (position, animated) {
-    controller.deselectProject();
+    //controller.deselectProject();
 
     position = Math.max(Math.min(position, WIDTH - window.innerWidth), 0);
     scrollPosition = position;
@@ -21,11 +22,14 @@ function scrollTo (position, animated) {
 
     if (animated) {
         tabletop.style.webkitTransition = '-webkit-transform 0.35s';
+        tabletop.style.MozTransition = '-moz-transform 0.35s';
     } else {
         tabletop.style.webkitTransition = 'none';
+        tabletop.style.MozTransition = 'none';
     }
     
     tabletop.style.webkitTransform = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
+    tabletop.style.MozTransform = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
 
     var nameplate = document.getElementById('nameplate');
     var nameplateWidth = parseInt(window.getComputedStyle(nameplate).width);
@@ -33,21 +37,37 @@ function scrollTo (position, animated) {
 
     if (animated) {
         nameplate.style.webkitTransition = '-webkit-filter 0.5s, background-position 0.35s';
+        nameplate.style.MozTransition = '-moz-filter 0.5s, background-position 0.35s';
     } else {
         nameplate.style.webkitTransition = '-webkit-filter 0.5s';
+        nameplate.style.MozTransition = '-moz-filter 0.5s';
     }
     nameplate.style.backgroundPosition = -addPercent + 'px 0';
 
-    var scrollEvent = document.createEvent("Event");
-    scrollEvent.initEvent("3Dscroll", true, true);
+    var scrollEvent = document.createEvent("CustomEvent");
+    scrollEvent.initCustomEvent("3Dscroll", true, true, { animated: animated });
     tabletop.dispatchEvent(scrollEvent);
 }
 
 function init (event) {
     controller = new ProjectController();
 
+    window.addEventListener('resize', resize, false);
+    resize();
+
     scrollTo((WIDTH - window.innerWidth) / 2);
-    document.addEventListener('mousewheel', scroll, false);
+    document.addEventListener('mousewheel', scroll, false); // WebKit
+    document.addEventListener('DOMMouseScroll', scroll, false); // Firefox
+}
+
+function resize (event) {
+    var yPos = window.innerHeight * 0.4 - 250;
+
+    var tabletop = document.getElementById('tabletop');
+    tabletop.style.top = yPos + 'px';
+
+    var overlay = document.getElementById('overlay');
+    overlay.style.top = yPos + 90 + 'px';
 }
 
 document.addEventListener('DOMContentLoaded', init, false);

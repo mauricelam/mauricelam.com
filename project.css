@@ -2,7 +2,9 @@
     text-align: center;
     z-index: 999999;
     -webkit-transform: translate3d(0, 150px, 2px);
+    -moz-transform: translate3d(0, 150px, 2px);
     -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
 }
 
 .project {
@@ -13,10 +15,12 @@
     vertical-align: middle;
     position: relative;
     overflow: visible;
+    -moz-transform-style: preserve-3d;
 }
 
 .project.selected > .project-image {
     -webkit-transform: rotateX(-10deg) translate3d(0, -50px, 200px);
+    -moz-transform: rotateX(-10deg) translate3d(0, -50px, 200px);
     height: 301px; /* hack to force redraw and prevent pixelation caused by filter */
 }
 
@@ -31,19 +35,26 @@
 }
 
 .project-image {
+    -webkit-user-drag: none;
     width: 300px;
     height: 300px;
     -webkit-transform: translate3d(0,0,10px);
+    -moz-transform: translate3d(0,0,10px);
     -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.5s, opacity 0.5s;
+    -moz-transition: -moz-transform 0.5s, -moz-filter 0.5s, opacity 0.5s;
+    z-index: 9999;
 }
 
 .project-image-shadow {
     opacity: 0.5;
     -webkit-transform: translate3d(0,3px,0);
+    -moz-transform: translate3d(0,3px,0);
     -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
 }
 
 #tabletop.blurred .project:not(.selected) > .project-image, 
 #tabletop.blurred .project:not(.selected) > .project-image-shadow {
     -webkit-filter: blur(2.5px); /* the blur value is low because the anti-aliasing effect is not good */
+    -moz-filter: blur(2.5px); 
 }

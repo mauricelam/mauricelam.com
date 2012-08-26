@@ -1,5 +1,6 @@
 {
     "id":"hometab",
     "name":"HomeTab",
+    "types":["concept"],
     "description":"HomeTab is a concept of a convenient start page. It is based upon Google Chrome's new tab page. It includes a number of breakthrough features such as translucent background page allowing quick glimpse of updated information, a quick search box in the center with customizable search engines and notifications on bookmarks bar. The latest idea has actually been realized through the chrome extensions Awesome Bookmarks and no.tify. "
 }

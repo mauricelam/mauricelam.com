@@ -1,10 +1,8 @@
 var ProjectController = function () { this.init.apply(this, arguments); };
 
-(function () {
+ProjectController.prototype = new (function () {
 
-    var self = ProjectController.prototype = {};
-
-    self.init = function () {
+    this.init = function () {
         this.projects = [];
         this.selectedProject = null;
 
@@ -19,18 +17,19 @@ var ProjectController = function () { this.init.apply(this, arguments); };
         }
     };
 
-    self.deselectProject = function () {
+    this.deselectProject = function () {
         if (this.selectedProject) {
             this.selectedProject.deselect();
         }
     };
 
-    self.projectDidDeselect = function (project) {
+    this.projectDidDeselect = function (project) {
         document.getElementById('tabletop').classList.remove('blurred');
         this.selectedProject = null;
     };
 
-    self.projectDidSelect = function (project) {
+    this.projectDidSelect = function (project) {
+        this.deselectProject();
         var position = project.element.offsetLeft - window.innerWidth/2 + 300;
         scrollTo(position, true);
 
@@ -38,7 +37,7 @@ var ProjectController = function () { this.init.apply(this, arguments); };
         this.selectedProject = project;
     };
 
-    self.clickTable = function (event) {
+    this.clickTable = function (event) {
         this.deselectProject();
     };
 
