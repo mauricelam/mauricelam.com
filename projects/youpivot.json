@@ -1,6 +1,9 @@
 {
     "id":"youpivot",
     "name":"YouPivot &amp; Timemarks",
-    "types":["research","chromeextension"],
+    "types":{
+    	"research":"http://youpivot.com/",
+    	"chromeextension":"https://chrome.google.com/webstore/detail/bhojlafenkipmbhpfhoojcflnplpohoo"
+    },
     "description":"YouPivot is a revolutionary search technique for your personal history. It is also a research project I am working on. It is implemented in the form of a background daemon and a chrome extension so your browser history is recorded into a database and viewed in a visual and organized way in a browser window. "
 }

@@ -50,6 +50,7 @@ function scrollTo (position, animated) {
 }
 
 function init (event) {
+    console.log('init')
     controller = new ProjectController();
 
     window.addEventListener('resize', resize, false);
@@ -71,3 +72,4 @@ function resize (event) {
 }
 
 document.addEventListener('DOMContentLoaded', init, false);
+document.addEventListener('unload', function () {}, false);

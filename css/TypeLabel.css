@@ -1,0 +1,72 @@
+.typelabel {
+    font-size: 12px;
+    width: 60px;
+    height: 60px;
+    margin: 10px 5px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    background-color: #444444;
+    border-radius: 5px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    cursor: default;
+}
+
+.typelabel:link {
+    cursor: pointer;
+}
+
+.typelabel > span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    text-transform: uppercase;
+    font-family: "Arial Narrow";
+}
+
+.typelabel.active:hover {
+    background-color: #CCC;
+}
+
+.typelabel:hover {
+    background-color: #888;
+    color: black;
+}
+
+.typelabel.chromeextension {
+    background-image: url('/images/chromeextension.png');
+    background-size: 60px 60px;
+}
+
+.typelabel.safariextension {
+    background-image: url('/images/safariextension.png');
+    background-size: 60px 60px;
+}
+
+.typelabel.androidapp {
+    background-image: url('/images/androidapp.png');
+    background-size: 60px 60px;
+}
+
+.typelabel.concept {
+    background-image: url('/images/concept.png');
+    background-size: 60px 60px;
+}
+
+.typelabel.research {
+    background-image: url('/images/research.png');
+    background-size: 60px 60px;
+}
+
+.typelabel.startup {
+    background-image: url('/images/startup.png');
+    background-size: 60px 60px;
+}
+
+.typelabel.webapp {
+    background-image: url('/images/webapp.png');
+    background-size: 60px 60px;
+}

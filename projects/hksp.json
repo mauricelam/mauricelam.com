@@ -1,6 +1,9 @@
 {
     "id":"hksp",
     "name":"HKStockPulse",
-    "types":["webapp","startup"],
-    "description":"HKStockPulse is a web platform targeted at stock speculators in Hong Kong. It is designed to facilitate information and opinion exchange between those enthusiasts and help them gather information. It is specifically designed for stock information and allows for unique features like the stock ticker or stock ticket tagging. I worked on the mobile version of this web app. "
+    "types":{
+    	"webapp":"",
+    	"startup":""
+    },
+    "description":"HKStockPulse is a web platform targeted at stock speculators in Hong Kong to facilitate information and opinion exchange. It is specifically designed for stock information and allows for unique features like the stock ticker or stock ticket tagging. I worked on the mobile version of this web app. <br /> Note: The site is no longer available"
 }

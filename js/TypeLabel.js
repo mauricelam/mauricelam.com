@@ -23,10 +23,15 @@ TypeLabel.prototype = new (function () {
     labels[TypeLabel.TYPE_STARTUP] = 'Startup';
     labels[TypeLabel.TYPE_INTERN] = 'Intern';
 
-    this.init = function (type) {
-        this.element = document.createElement('div');
+    this.init = function (type, link) {
+        this.element = document.createElement('a');
         this.element.classList.add('typelabel');
         this.element.classList.add(type);
+        if (link) {
+            this.element.classList.add('active');
+            this.element.href = link;
+            this.element.target = "_blank";
+        }
 
         var span = document.createElement('span');
         this.element.appendChild(span);

@@ -55,6 +55,8 @@
 
 #tabletop.blurred .project:not(.selected) > .project-image, 
 #tabletop.blurred .project:not(.selected) > .project-image-shadow {
-    -webkit-filter: blur(2.5px); /* the blur value is low because the anti-aliasing effect is not good */
-    -moz-filter: blur(2.5px); 
+    /* Blur is too bad in quality. Disable for now */
+    /* -webkit-filter: blur(2.5px); */ /* the blur value is low because the anti-aliasing effect is not good */
+    /* -moz-filter: blur(2.5px); */
+
 }

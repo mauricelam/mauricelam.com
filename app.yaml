@@ -1,0 +1,23 @@
+application: mauricelam
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /projects
+  static_dir: projects
+
+- url: /images
+  static_dir: images
+
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /templates
+  static_dir: templates
+
+- url: /.*
+  script: main.py

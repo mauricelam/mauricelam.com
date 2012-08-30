@@ -1,0 +1,12 @@
+.pagecontrol {
+    text-align: center;
+    height: 20px;
+}
+
+.pagecontrol > span {
+    display: inline-block;
+    width; 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
