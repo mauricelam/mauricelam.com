@@ -6,6 +6,7 @@ Overlay.prototype = new (function () {
         if (!Overlay.sharedElement) {
             var overlay = Overlay.sharedElement = document.getElementById('overlay');
             overlay.addEventListener('click', Overlay.click, false);
+            overlay.addEventListener('touchend', Overlay.click, false);
             overlay.content = overlay.querySelector('.content');
             overlay.leftArrow = overlay.querySelector('.leftarrow');
             overlay.rightArrow = overlay.querySelector('.rightarrow');
@@ -85,7 +86,9 @@ Overlay.prototype = new (function () {
     };
 
     Overlay.click = function (event) {
-        event.stopPropagation();
+        if (event.type == 'click' || Math.abs(event.lastEvent.pageX - event.startEvent.pageX) < 44) {
+            event.stopPropagation();
+        }
     };
 
 })();

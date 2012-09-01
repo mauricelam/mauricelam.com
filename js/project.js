@@ -1,8 +1,6 @@
 var Project = function () { this.init.apply(this, arguments); };
 
 Project.prototype = new (function () {
-    
-    // this.prototype = {}; inheritance
 
     this.init = function (element) {
         this.delegate = null;
@@ -10,20 +8,41 @@ Project.prototype = new (function () {
         element.item = this;
         this.overlay = new Overlay(this.element.getAttribute('id'));
         
-        var image = document.createElement('img');
+        var image = new Image();
         image.src = element.getAttribute('data-image');
-        image.classList.add('project-image');
-        element.appendChild(image);
 
-        drawShadow(element);
+        var width = 300, height = 300;
 
-        image.addEventListener('click', this.clickIcon.bind(this), false);
+        var imageCanvas = document.createElement('canvas');
+        imageCanvas.originalImage = image;
+        imageCanvas.classList.add('project-image');
+        image.addEventListener('load', function () {
+            imageCanvas.style.width  = width + "px";
+            imageCanvas.style.height = height + "px";
+            imageCanvas.width = width;
+            imageCanvas.height = height;
+            
+            var context = imageCanvas.getContext("2d");
+            context.clearRect( 0, 0, width, height );
+            context.drawImage( image, 0, 0, width, height );
+        }, false);
+        element.appendChild(imageCanvas);
+
+        element.appendChild(drawShadow(image, width, height));
+
+        if (isTouchDevice()) {
+            imageCanvas.addEventListener('touchend', this.clickIcon.bind(this), false);
+        } else {
+            imageCanvas.addEventListener('click', this.clickIcon.bind(this), false);
+        }
         window.addEventListener('3Dscroll', this.scroll.bind(this), false);
     };
 
     this.clickIcon = function (event) {
-        event.stopPropagation();
-        this.select();
+        if (event.type == 'click' || Math.abs(event.lastEvent.pageX - event.startEvent.pageX) < 44) {
+            event.stopPropagation();
+            this.select();
+        }
     };
 
     this.select = function () {
@@ -53,14 +72,12 @@ Project.prototype = new (function () {
     };
 
     this.setOverlayPosition = function () {
-        var position = this.element.offsetLeft - scrollPosition + 250;
-        var parallax = position / window.innerWidth;
-        position += parallax * 200;
+        var position = this.element.offsetLeft - scrollPosition;
+        position *= 1.18;
+        position += 280;
 
-        if (position + 350 > window.innerWidth) {
-            position = this.element.offsetLeft - scrollPosition - 420;
-            var parallax = position / window.innerWidth;
-            position += parallax * 200;
+        if (position + 250 > window.innerWidth) {
+            position -= 720;
         }
         Overlay.sharedElement.style.left = position + 'px';
     };
@@ -74,5 +91,29 @@ Project.prototype = new (function () {
             }
         }
     };
+
+    this.blur = function () {
+        var canvas = this.element.querySelector('.project-image');
+        var context = canvas.getContext('2d');
+        if (!canvas.restoreCache('blurred')) {
+            //stackBlurImageWithSize(canvas.originalImage, canvas, 300, 300, 5, true);
+            context.globalAlpha = 0.5;
+            context.globalCompositeOperation = 'source-atop';
+            context.fillStyle = "#FFF";
+            context.fillRect(0, 0, 300, 300);
+            context.globalAlpha = 1.0;
+            context.globalCompositeOperation = 'source-over';
+
+            canvas.saveCache('blurred');
+        }
+    };
+
+    this.unblur = function () {
+        var width = 300, height = 300;
+        var canvas = this.element.querySelector('.project-image');
+        var context = canvas.getContext('2d');
+        context.clearRect(0, 0, width, height);
+        context.drawImage(canvas.originalImage, 0, 0, width, height);
+    }
 
 })();

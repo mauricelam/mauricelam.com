@@ -1,3 +1,10 @@
+@font-face
+{
+    font-family: HelveticaNeueLight;
+    src: url('/css/HelveticaNeueLight.ttf');
+    font-weight: 100;
+}
+
 html {
     height: 100%;
 }
@@ -11,6 +18,7 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
+    font-family: HelveticaNeueLight;
 }
 
 #wrap {
@@ -43,19 +51,30 @@ Too much CPUs
 }
 */
 
-#tabletop { 
+#tabletop {
     border-radius: 5px;
-    box-shadow: 0px 10px 10px rgba(0,0,0,0.5);
-    -webkit-transform: rotateX(10deg);
-    -moz-transform: rotateX(10deg);
+    /*box-shadow: 0px 10px 0px #666666;*/
+    -webkit-transform: rotateX(70deg);
+    -moz-transform: rotateX(70deg);
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -webkit-transform-origin: 20% 150%;
     -moz-transform-origin: 20% 150%;
-    background: url('/images/bg.jpg') repeat;
+    background: #F2F2F2 repeat;
     width: 4000px;
     height: 500px;
     position: absolute;
+}
+
+#tableedge {
+    position: absolute;
+    width: 3994px;
+    height: 30px;
+    background: #666666;
+    top: 100%;
+    left: 3px;
+    -webkit-transform: rotateX(-80deg);
+    -webkit-transform-origin: 0 0;
 }
 
 .nameplate {

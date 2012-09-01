@@ -1,46 +1,43 @@
+//=> compatibility ScrollRecognizer ProjectController
+
 var WIDTH = 4000;
 var ROTATEFACTOR = 0.005;
 var scrollPosition = 0;
 var controller = null;
 
-function scroll (event) {
-    var wheelDelta = (event.wheelDeltaX) ? event.wheelDeltaX : (event.axis == 1) ? event.detail * -40 : 0;
-    event.stopPropagation();
-    event.preventDefault();
-    var dx = wheelDelta;
-    scrollTo(scrollPosition - dx/4);
-}
-
-function scrollTo (position, animated) {
-    //controller.deselectProject();
-
+function scrollTo (position, animated, duration) {
     position = Math.max(Math.min(position, WIDTH - window.innerWidth), 0);
     scrollPosition = position;
     var angle = -Math.atan((position + (window.innerWidth / 2) - (WIDTH / 2)) / 800);
     var rotation = angle * ROTATEFACTOR;
     var tabletop = document.getElementById('tabletop');
 
+    if (duration === undefined) {
+        duration = 0.35;
+    }
+
     if (animated) {
-        tabletop.style.webkitTransition = '-webkit-transform 0.35s';
-        tabletop.style.MozTransition = '-moz-transform 0.35s';
+        tabletop.style.webkitTransition = '-webkit-transform '+duration+'s';
+        tabletop.style.MozTransition = '-moz-transform '+duration+'s';
     } else {
         tabletop.style.webkitTransition = 'none';
         tabletop.style.MozTransition = 'none';
     }
     
-    tabletop.style.webkitTransform = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
-    tabletop.style.MozTransform = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
+    //tabletop.style.webkitTransform = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
+    tabletop.style.webkitTransform = 'rotateX(10deg) translateX('+ (-scrollPosition) +'px)';
+    tabletop.style.MozTransform = 'rotateX(10deg) translateX('+ (-scrollPosition) +'px)';
 
     var nameplate = document.getElementById('nameplate');
     var nameplateWidth = parseInt(window.getComputedStyle(nameplate).width);
     var addPercent = (-scrollPosition + WIDTH/2 - nameplateWidth ) / 3;
 
     if (animated) {
-        nameplate.style.webkitTransition = '-webkit-filter 0.5s, background-position 0.35s';
-        nameplate.style.MozTransition = '-moz-filter 0.5s, background-position 0.35s';
+        nameplate.style.webkitTransition = 'background-position '+duration+'s';
+        nameplate.style.MozTransition = 'background-position '+duration+'s';
     } else {
-        nameplate.style.webkitTransition = '-webkit-filter 0.5s';
-        nameplate.style.MozTransition = '-moz-filter 0.5s';
+        nameplate.style.webkitTransition = 'none';
+        nameplate.style.MozTransition = 'none';
     }
     nameplate.style.backgroundPosition = -addPercent + 'px 0';
 
@@ -49,16 +46,24 @@ function scrollTo (position, animated) {
     tabletop.dispatchEvent(scrollEvent);
 }
 
+var scrollRecognizer = null;
+
 function init (event) {
-    console.log('init')
     controller = new ProjectController();
 
     window.addEventListener('resize', resize, false);
     resize();
 
-    scrollTo((WIDTH - window.innerWidth) / 2);
-    document.addEventListener('mousewheel', scroll, false); // WebKit
-    document.addEventListener('DOMMouseScroll', scroll, false); // Firefox
+    window.setTimeout(scrollToMiddle, 500);
+    scrollRecognizer = new ScrollRecognizer(window, 'scrollDelta');
+}
+
+function scrollDelta (delta) {
+    scrollTo(scrollPosition - delta);
+}
+
+function scrollToMiddle () {
+    scrollTo((WIDTH - window.innerWidth) / 2, true, 2);
 }
 
 function resize (event) {
@@ -72,4 +77,4 @@ function resize (event) {
 }
 
 document.addEventListener('DOMContentLoaded', init, false);
-document.addEventListener('unload', function () {}, false);
+document.addEventListener('unload', function () {}, false); // prevent page cache

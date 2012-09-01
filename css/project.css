@@ -40,8 +40,14 @@
     height: 300px;
     -webkit-transform: translate3d(0,0,10px);
     -moz-transform: translate3d(0,0,10px);
+    /*
     -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.5s, opacity 0.5s;
     -moz-transition: -moz-transform 0.5s, -moz-filter 0.5s, opacity 0.5s;
+    */
+
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    -moz-transition: -moz-transform 0.5s, opacity 0.5s;
+
     z-index: 9999;
 }
 

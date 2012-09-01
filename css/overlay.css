@@ -31,9 +31,6 @@
 }
 
 .project-overlay > .content > .description {
-    font-family: "Helvetica Neue", Verdana, sans-serif;
-    letter-spacing: 1px;
-    font-weight: 100;
     line-height: 20px;
 }
 
