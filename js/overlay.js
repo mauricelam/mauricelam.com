@@ -1,3 +1,5 @@
+//=> TypeLabel
+
 var Overlay = function () { this.init.apply(this, arguments); };
 
 Overlay.prototype = new (function () {

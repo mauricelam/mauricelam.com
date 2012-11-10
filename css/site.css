@@ -21,6 +21,11 @@ body {
     font-family: HelveticaNeueLight;
 }
 
+::-webkit-scrollbar {
+    /* hide scrollbar */
+    width: 0;
+}
+
 #wrap {
     -webkit-perspective: 800;
        -moz-perspective: 800px;
@@ -64,6 +69,8 @@ Too much CPUs
     width: 4000px;
     height: 500px;
     position: absolute;
+
+    -ms-transform: translate(0, 70px);
 }
 
 #tableedge {
@@ -74,7 +81,9 @@ Too much CPUs
     top: 100%;
     left: 3px;
     -webkit-transform: rotateX(-80deg);
+    -moz-transform: rotateX(-80deg);
     -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
 }
 
 .nameplate {
@@ -121,8 +130,8 @@ Too much CPUs
     -moz-transition: -moz-filter 0.5s;
 }
 
-#tabletop.blurred > #nameplate-group > * {
+/*#tabletop.blurred > #nameplate-group > * {*/
     /* Blur is too low in quality. Disable for now */
     /*-webkit-filter: blur(2.5px);
     -moz-filter: blur(2.5px);*/
-}
+/*}*/

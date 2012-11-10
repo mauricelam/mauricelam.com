@@ -1,4 +1,5 @@
 //=> StackBlur
+//<= Shadow
 
 function drawShadow (image, width, height) {
     var canvas = document.createElement('canvas');

@@ -1,3 +1,5 @@
+//=> Project
+
 var ProjectController = function () { this.init.apply(this, arguments); };
 
 ProjectController.prototype = new (function () {
@@ -45,7 +47,7 @@ ProjectController.prototype = new (function () {
         if (position - WIDTH + window.innerWidth > 100) {
             position -= 300;
         }
-        scrollTo(position, true);
+        scrollTableTo(position, true);
 
         document.getElementById('tabletop').classList.add('blurred');
         this.selectedProject = project;
@@ -58,11 +60,14 @@ ProjectController.prototype = new (function () {
     };
 
     this.windowResized = function (event) {
+        if (this.selectedProject == null) {
+            return;
+        }
         var position = this.selectedProject.element.offsetLeft - window.innerWidth/2 + 300;
         if (position - WIDTH + window.innerWidth > 100) {
             position -= 300;
         }
-        scrollTo(position, false);
+        scrollTableTo(position, false);
     };
 
     this.clickTable = function (event) {

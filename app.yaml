@@ -1,6 +1,7 @@
 application: mauricelam
 version: 1
-runtime: python
+runtime: python27
+threadsafe: false
 api_version: 1
 
 handlers:
@@ -18,6 +19,12 @@ handlers:
 
 - url: /templates
   static_dir: templates
+
+- url: /loc
+  static_dir: loc
+
+- url: /library
+  static_dir: library
 
 - url: /.*
   script: main.py

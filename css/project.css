@@ -16,6 +16,7 @@
     position: relative;
     overflow: visible;
     -moz-transform-style: preserve-3d;
+    -ms-transform: translate(0, 150px);
 }
 
 .project.selected > .project-image {

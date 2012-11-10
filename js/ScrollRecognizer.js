@@ -29,7 +29,7 @@ ScrollRecognizer.prototype = new (function () {
         event.preventDefault();
         var dx = wheelDelta / 4;
         this.target[this.action](dx);
-    }
+    };
 
     this.touchesBegan = function (event) {
         if (steppingTimer) {
@@ -37,24 +37,29 @@ ScrollRecognizer.prototype = new (function () {
         }
         lastEvent = event;
         //event.preventDefault();
-    }
+    };
 
     this.touchesMoved = function (event) {
         event.preventDefault();
-        var delta = event.pageX - lastEvent.pageX;
+        // chrome for android
+        var delta = event.touches[0].pageX - lastEvent.touches[0].pageX;
+        if (!delta) {
+            // iOS uses this better
+            delta = event.pageX - lastEvent.pageX;
+        }
         this.target[this.action](delta);
         if (lastEvent) {
             velocityMeter.addData(delta / (event.timeStamp - lastEvent.timeStamp) * 20);
         }
         lastEvent = event;
-    }
+    };
 
     this.touchesEnded = function (event) {
-        deceleration = velocityMeter.getData();
+        deceleration = velocityMeter.getData() * 1.5;
         steppingTimer = window.setInterval(function () {
             this.stepToCompletion();
         }.bind(this), 20); // ~60 fps
-    }
+    };
 
     this.stepToCompletion = function () {
         this.target[this.action](deceleration);
@@ -63,6 +68,6 @@ ScrollRecognizer.prototype = new (function () {
             clearInterval(steppingTimer);
             velocityMeter.reset();
         }
-    }
+    };
 
 })();

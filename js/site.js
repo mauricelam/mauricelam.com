@@ -5,7 +5,7 @@ var ROTATEFACTOR = 0.005;
 var scrollPosition = 0;
 var controller = null;
 
-function scrollTo (position, animated, duration) {
+function scrollTableTo (position, animated, duration) {
     position = Math.max(Math.min(position, WIDTH - window.innerWidth), 0);
     scrollPosition = position;
     var angle = -Math.atan((position + (window.innerWidth / 2) - (WIDTH / 2)) / 800);
@@ -56,14 +56,26 @@ function init (event) {
 
     window.setTimeout(scrollToMiddle, 500);
     scrollRecognizer = new ScrollRecognizer(window, 'scrollDelta');
+
+    document.body.style.height = (window.innerHeight + 120) + 'px';
+    setTimeout(function () {
+      window.scrollTo(0, 1);
+    }, 1000);
+
+    var meta = document.getElementById('meta-viewport');
+    if (window.innerWidth < 500 || window.innerHeight < 500) { 
+        meta.setAttribute('content', 'width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no');
+    } else {
+        meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
 }
 
 function scrollDelta (delta) {
-    scrollTo(scrollPosition - delta);
+    scrollTableTo(scrollPosition - delta);
 }
 
 function scrollToMiddle () {
-    scrollTo((WIDTH - window.innerWidth) / 2, true, 2);
+    scrollTableTo((WIDTH - window.innerWidth) / 2, true, 2);
 }
 
 function resize (event) {
