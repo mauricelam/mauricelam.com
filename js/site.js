@@ -7,6 +7,10 @@ var controller = null;
 
 function scrollTableTo (position, animated, duration) {
     position = Math.max(Math.min(position, WIDTH - window.innerWidth), 0);
+    internalScrollTo(position, animated, duration);
+}
+
+function internalScrollTo(position, animated, duration) {
     scrollPosition = position;
     var angle = -Math.atan((position + (window.innerWidth / 2) - (WIDTH / 2)) / 800);
     var rotation = angle * ROTATEFACTOR;
@@ -17,24 +21,24 @@ function scrollTableTo (position, animated, duration) {
     }
 
     if (animated) {
-        tabletop.style.webkitTransition = '-webkit-transform '+duration+'s';
-        tabletop.style.MozTransition = '-moz-transform '+duration+'s';
+        tabletop.style.webkitTransition = '-webkit-transform ' + duration + 's';
+        tabletop.style.MozTransition = '-moz-transform ' + duration + 's';
     } else {
         tabletop.style.webkitTransition = 'none';
         tabletop.style.MozTransition = 'none';
     }
-    
+
     //tabletop.style.webkitTransform = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
-    tabletop.style.webkitTransform = 'rotateX(10deg) translateX('+ (-scrollPosition) +'px)';
-    tabletop.style.MozTransform = 'rotateX(10deg) translateX('+ (-scrollPosition) +'px)';
+    tabletop.style.webkitTransform = 'rotateX(10deg) translateX(' + (-scrollPosition) + 'px)';
+    tabletop.style.MozTransform = 'rotateX(10deg) translateX(' + (-scrollPosition) + 'px)';
 
     var nameplate = document.getElementById('nameplate');
-    var nameplateWidth = parseInt(window.getComputedStyle(nameplate).width);
-    var addPercent = (-scrollPosition + WIDTH/2 - nameplateWidth ) / 3;
+    var nameplateWidth = parseInt(window.getComputedStyle(nameplate).width, 10);
+    var addPercent = (-scrollPosition + (WIDTH / 2) - nameplateWidth) / 3;
 
     if (animated) {
-        nameplate.style.webkitTransition = 'background-position '+duration+'s';
-        nameplate.style.MozTransition = 'background-position '+duration+'s';
+        nameplate.style.webkitTransition = 'background-position ' + duration + 's';
+        nameplate.style.MozTransition = 'background-position ' + duration + 's';
     } else {
         nameplate.style.webkitTransition = 'none';
         nameplate.style.MozTransition = 'none';
@@ -48,7 +52,7 @@ function scrollTableTo (position, animated, duration) {
 
 var scrollRecognizer = null;
 
-function init (event) {
+function init(event) {
     controller = new ProjectController();
 
     window.addEventListener('resize', resize, false);
@@ -58,20 +62,30 @@ function init (event) {
     scrollRecognizer = new ScrollRecognizer(window, 'scrollDelta');
 
     document.body.style.height = (window.innerHeight + 120) + 'px';
-    setTimeout(function () {
-      window.scrollTo(0, 1);
+    window.setTimeout(function () {
+        window.scrollTo(0, 1);
     }, 1000);
 
     var meta = document.getElementById('meta-viewport');
-    if (window.innerWidth < 500 || window.innerHeight < 500) { 
+    if (window.innerWidth < 500 || window.innerHeight < 500) {
         meta.setAttribute('content', 'width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no');
     } else {
         meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
     }
 }
 
+var MAXSCROLL = 1500;
+var MINSCROLL = 0;
+
 function scrollDelta (delta) {
-    scrollTableTo(scrollPosition - delta);
+    var position = scrollPosition - delta;
+    if (scrollPosition < MINSCROLL && delta > 0) {
+        position = scrollPosition - delta / (Math.pow(2, (MINSCROLL - scrollPosition) / 50) + 1);
+    } else if (scrollPosition > MAXSCROLL && delta < 0) {
+        position = scrollPosition - delta / (Math.pow(2, (scrollPosition - MAXSCROLL) / 50) + 1);
+    }
+    //var position = Math.max(Math.min(scrollPosition - delta, WIDTH - window.innerWidth), 0);
+    internalScrollTo(position);
 }
 
 function scrollToMiddle () {
@@ -86,6 +100,8 @@ function resize (event) {
 
     var overlay = document.getElementById('overlay');
     overlay.style.top = yPos + 90 + 'px';
+
+    MAXSCROLL = WIDTH - window.innerWidth;
 }
 
 document.addEventListener('DOMContentLoaded', init, false);

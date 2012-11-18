@@ -1,11 +1,19 @@
 #projects {
     text-align: center;
     z-index: 999999;
+
     -webkit-transform: translate3d(0, 150px, 2px);
     -moz-transform: translate3d(0, 150px, 2px);
+    -o-transform: translate3d(0, 150px, 2px);
+    -ms-transform: translate3d(0, 150px, 2px);
+    transform: translate3d(0, 150px, 2px);
+
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
+
 
 .project {
     width: 300px;
@@ -15,13 +23,21 @@
     vertical-align: middle;
     position: relative;
     overflow: visible;
+
+    -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
     -ms-transform: translate(0, 150px);
 }
 
 .project.selected > .project-image {
     -webkit-transform: rotateX(-10deg) translate3d(0, -50px, 200px);
     -moz-transform: rotateX(-10deg) translate3d(0, -50px, 200px);
+    -o-transform: rotateX(-10deg) translate3d(0, -50px, 200px);
+    -ms-transform: rotateX(-10deg) translate3d(0, -50px, 200px);
+    transform: rotateX(-10deg) translate3d(0, -50px, 200px);
     height: 301px; /* hack to force redraw and prevent pixelation caused by filter */
 }
 
@@ -31,39 +47,50 @@
 
 .project > * {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 }
 
 .project-image {
     -webkit-user-drag: none;
     width: 300px;
     height: 300px;
+
     -webkit-transform: translate3d(0,0,10px);
     -moz-transform: translate3d(0,0,10px);
-    /*
-    -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.5s, opacity 0.5s;
-    -moz-transition: -moz-transform 0.5s, -moz-filter 0.5s, opacity 0.5s;
-    */
+    -o-transform: translate3d(0,0,10px);
+    -ms-transform: translate3d(0,0,10px);
+    transform: translate3d(0,0,10px);
 
     -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
     -moz-transition: -moz-transform 0.5s, opacity 0.5s;
-
+    -o-transition: -o-transform 0.5s, opacity 0.5s;
+    -ms-transition: -ms-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
     z-index: 9999;
 }
 
 .project-image-shadow {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
     opacity: 0.5;
+
     -webkit-transform: translate3d(0,3px,0);
     -moz-transform: translate3d(0,3px,0);
+    -o-transform: translate3d(0,3px,0);
+    -ms-transform: translate3d(0,3px,0);
+    transform: translate3d(0,3px,0);
+
     -webkit-transition: opacity 0.5s;
     -moz-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    transition: opacity 0.5s;
 }
 
-#tabletop.blurred .project:not(.selected) > .project-image, 
-#tabletop.blurred .project:not(.selected) > .project-image-shadow {
+/*#tabletop.blurred .project:not(.selected) > .project-image, */
+/*#tabletop.blurred .project:not(.selected) > .project-image-shadow {*/
     /* Blur is too bad in quality. Disable for now */
     /* -webkit-filter: blur(2.5px); */ /* the blur value is low because the anti-aliasing effect is not good */
     /* -moz-filter: blur(2.5px); */
-
-}
+/*}*/

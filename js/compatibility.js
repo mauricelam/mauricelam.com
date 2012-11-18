@@ -24,14 +24,6 @@ if (!Function.prototype.bind) {
 }
 
 /****************************
- * isTouchDevice
- ****************************/
-
- function isTouchDevice () {
-    return ("ontouchstart" in window);
- }
-
-/****************************
  * Touch event additions
  ****************************/
 

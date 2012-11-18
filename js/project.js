@@ -1,15 +1,16 @@
-//=> Overlay Shadow
+//=> Overlay Shadow Utils
 
-var Project = function () { this.init.apply(this, arguments); };
+var Project = function () { 'use strict'; this.init.apply(this, arguments); };
 
 Project.prototype = new (function () {
+    'use strict';
 
     this.init = function (element) {
         this.delegate = null;
         this.element = element;
         element.item = this;
         this.overlay = new Overlay(this.element.getAttribute('id'));
-        
+
         var image = new Image();
         image.src = element.getAttribute('data-image');
 
@@ -23,16 +24,16 @@ Project.prototype = new (function () {
             imageCanvas.style.height = height + "px";
             imageCanvas.width = width;
             imageCanvas.height = height;
-            
+
             var context = imageCanvas.getContext("2d");
-            context.clearRect( 0, 0, width, height );
-            context.drawImage( image, 0, 0, width, height );
+            context.clearRect(0, 0, width, height);
+            context.drawImage(image, 0, 0, width, height);
         }, false);
         element.appendChild(imageCanvas);
 
         element.appendChild(drawShadow(image, width, height));
 
-        if (isTouchDevice()) {
+        if (Utils.isTouchDevice()) {
             imageCanvas.addEventListener('touchend', this.clickIcon.bind(this), false);
         } else {
             imageCanvas.addEventListener('click', this.clickIcon.bind(this), false);
@@ -41,7 +42,7 @@ Project.prototype = new (function () {
     };
 
     this.clickIcon = function (event) {
-        if (event.type == 'click' || Math.abs(event.lastEvent.pageX - event.startEvent.pageX) < 44) {
+        if (event.type === 'click' || Math.abs(event.lastEvent.pageX - event.startEvent.pageX) < 44) {
             event.stopPropagation();
             this.select();
         }
@@ -57,17 +58,17 @@ Project.prototype = new (function () {
             }
             this.setOverlayPosition();
         }
-    }
+    };
 
     this.deselect = function () {
         if (this.isSelected()) {
             this.element.classList.remove('selected');
-            setTimeout(function () { this.overlay.hide() }.bind(this), 100);
+            setTimeout(function () { this.overlay.hide(); }.bind(this), 100);
             if (this.delegate && typeof this.delegate.projectDidDeselect) {
                 this.delegate.projectDidDeselect(this);
             }
         }
-    }
+    };
 
     this.isSelected = function () {
         return this.element.classList.contains('selected');
@@ -116,6 +117,6 @@ Project.prototype = new (function () {
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, width, height);
         context.drawImage(canvas.originalImage, 0, 0, width, height);
-    }
+    };
 
 })();
