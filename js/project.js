@@ -1,9 +1,8 @@
-//=> Overlay Shadow Utils
+//=> Overlay Utils Modernizr TapGestureRecognizer
 
-var Project = function () { 'use strict'; this.init.apply(this, arguments); };
+var Project = function () { this.init.apply(this, arguments); };
 
 Project.prototype = new (function () {
-    'use strict';
 
     this.init = function (element) {
         this.delegate = null;
@@ -11,30 +10,26 @@ Project.prototype = new (function () {
         element.item = this;
         this.overlay = new Overlay(this.element.getAttribute('id'));
 
-        var image = new Image();
-        image.src = element.getAttribute('data-image');
-
         var width = 300, height = 300;
 
-        var imageCanvas = document.createElement('canvas');
+        var image = new Image();
+        image.src = element.getAttribute('data-image') + '.png';
+
+        var imageCanvas = Utils.createImageCanvas(image, width, height);
         imageCanvas.originalImage = image;
         imageCanvas.classList.add('project-image');
-        image.addEventListener('load', function () {
-            imageCanvas.style.width  = width + "px";
-            imageCanvas.style.height = height + "px";
-            imageCanvas.width = width;
-            imageCanvas.height = height;
-
-            var context = imageCanvas.getContext("2d");
-            context.clearRect(0, 0, width, height);
-            context.drawImage(image, 0, 0, width, height);
-        }, false);
         element.appendChild(imageCanvas);
 
-        element.appendChild(drawShadow(image, width, height));
+        var shadowImage = new Image();
+        shadowImage.src = element.getAttribute('data-image') + '_shadow.png';
 
-        if (Utils.isTouchDevice()) {
-            imageCanvas.addEventListener('touchend', this.clickIcon.bind(this), false);
+        var shadowCanvas = Utils.createImageCanvas(shadowImage, width, height);
+        shadowCanvas.classList.add('project-image-shadow');
+        element.appendChild(shadowCanvas);
+
+        if (Modernizr.touch) {
+            var tapRecognizer = imageCanvas.addEventListener('tap', this.clickIcon.bind(this), false);
+            tapRecognizer.stopsPropagation = true;
         } else {
             imageCanvas.addEventListener('click', this.clickIcon.bind(this), false);
         }
@@ -42,16 +37,14 @@ Project.prototype = new (function () {
     };
 
     this.clickIcon = function (event) {
-        if (event.type === 'click' || Math.abs(event.lastEvent.pageX - event.startEvent.pageX) < 44) {
-            event.stopPropagation();
-            this.select();
-        }
+        event.stopPropagation();
+        this.select();
     };
 
     this.select = function () {
         if (!this.isSelected()) {
             this.element.classList.add('selected');
-            setTimeout(function () { this.overlay.show(); }.bind(this), 500);
+            setTimeout(function () { if (this.isSelected()) this.overlay.show(); }.bind(this), 500);
 
             if (this.delegate && typeof this.delegate.projectDidSelect) {
                 this.delegate.projectDidSelect(this);
@@ -63,7 +56,7 @@ Project.prototype = new (function () {
     this.deselect = function () {
         if (this.isSelected()) {
             this.element.classList.remove('selected');
-            setTimeout(function () { this.overlay.hide(); }.bind(this), 100);
+            setTimeout(this.overlay.$('hide'), 100);
             if (this.delegate && typeof this.delegate.projectDidDeselect) {
                 this.delegate.projectDidDeselect(this);
             }
@@ -96,27 +89,31 @@ Project.prototype = new (function () {
     };
 
     this.blur = function () {
-        var canvas = this.element.querySelector('.project-image');
-        var context = canvas.getContext('2d');
-        if (!canvas.restoreCache('blurred')) {
-            //stackBlurImageWithSize(canvas.originalImage, canvas, 300, 300, 5, true);
-            context.globalAlpha = 0.5;
-            context.globalCompositeOperation = 'source-atop';
-            context.fillStyle = "#FFF";
-            context.fillRect(0, 0, 300, 300);
-            context.globalAlpha = 1.0;
-            context.globalCompositeOperation = 'source-over';
+        // var canvas = this.element.querySelector('.project-image');
+        // var context = canvas.getContext('2d');
+        // context.globalAlpha = 0.1;
+        // context.globalCompositeOperation = 'source-atop';
+        // context.fillStyle = '#FFF';
+        // this.whitenAnimation(canvas, context, 10);
+    };
 
-            canvas.saveCache('blurred');
-        }
+    this.whitenAnimation = function (canvas, context, times) {
+        // if (times == 0) {
+        //     // revert back to default global canvas operations
+        //     context.globalAlpha = 1.0;
+        //     context.globalCompositeOperation = 'source-over';
+        // } else {
+        //     context.fillRect(0, 0, 300, 300);
+        //     setTimeout(function () { this.whitenAnimation(canvas, context, times - 1); }.bind(this), 30);
+        // }
     };
 
     this.unblur = function () {
-        var width = 300, height = 300;
-        var canvas = this.element.querySelector('.project-image');
-        var context = canvas.getContext('2d');
-        context.clearRect(0, 0, width, height);
-        context.drawImage(canvas.originalImage, 0, 0, width, height);
+        // var width = 300, height = 300;
+        // var canvas = this.element.querySelector('.project-image');
+        // var context = canvas.getContext('2d');
+        // context.clearRect(0, 0, width, height);
+        // context.drawImage(canvas.originalImage, 0, 0, width, height);
     };
 
 })();

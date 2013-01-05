@@ -1,4 +1,4 @@
-//=> compatibility ScrollRecognizer ProjectController
+//=> compatibility ScrollRecognizer ProjectController Modernizr
 
 var WIDTH = 4000;
 var ROTATEFACTOR = 0.005;
@@ -11,9 +11,9 @@ function scrollTableTo (position, animated, duration) {
 }
 
 function internalScrollTo(position, animated, duration) {
-    scrollPosition = position;
-    var angle = -Math.atan((position + (window.innerWidth / 2) - (WIDTH / 2)) / 800);
-    var rotation = angle * ROTATEFACTOR;
+    scrollPosition = Math.round(position);
+    // var angle = -Math.atan((position + (window.innerWidth / 2) - (WIDTH / 2)) / 800);
+    // var rotation = angle * ROTATEFACTOR;
     var tabletop = document.getElementById('tabletop');
 
     if (duration === undefined) {
@@ -21,33 +21,56 @@ function internalScrollTo(position, animated, duration) {
     }
 
     if (animated) {
-        tabletop.style.webkitTransition = '-webkit-transform ' + duration + 's';
-        tabletop.style.MozTransition = '-moz-transform ' + duration + 's';
+        tabletop.style[Modernizr.prefixed('transition')] = Modernizr.cssPrefixed('transform') + ' ' + duration + 's';
     } else {
-        tabletop.style.webkitTransition = 'none';
-        tabletop.style.MozTransition = 'none';
+        tabletop.style[Modernizr.prefixed('transition')] = 'none';
     }
 
-    //tabletop.style.webkitTransform = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
-    tabletop.style.webkitTransform = 'rotateX(10deg) translateX(' + (-scrollPosition) + 'px)';
-    tabletop.style.MozTransform = 'rotateX(10deg) translateX(' + (-scrollPosition) + 'px)';
+    //tabletop.style[Modernizr.prefixed('transform')] = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
+    tabletop.style[Modernizr.prefixed('transform')] = 'rotateX(10deg) translateX(' + (-scrollPosition) + 'px)';
 
     var nameplate = document.getElementById('nameplate');
     var nameplateWidth = parseInt(window.getComputedStyle(nameplate).width, 10);
     var addPercent = (-scrollPosition + (WIDTH / 2) - nameplateWidth) / 3;
 
     if (animated) {
-        nameplate.style.webkitTransition = 'background-position ' + duration + 's';
-        nameplate.style.MozTransition = 'background-position ' + duration + 's';
+        nameplate.style[Modernizr.prefixed('transition')] = 'background-position ' + duration + 's';
     } else {
-        nameplate.style.webkitTransition = 'none';
-        nameplate.style.MozTransition = 'none';
+        nameplate.style[Modernizr.prefixed('transition')] = 'none';
     }
     nameplate.style.backgroundPosition = -addPercent + 'px 0';
 
-    var scrollEvent = document.createEvent("CustomEvent");
-    scrollEvent.initCustomEvent("3Dscroll", true, true, { animated: animated });
+    var scrollEvent = document.createEvent('CustomEvent');
+    scrollEvent.initCustomEvent('3Dscroll', true, true, { animated: animated });
     tabletop.dispatchEvent(scrollEvent);
+}
+
+function resize(event) {
+    var eventType = event && event.type;
+    if (navigator.userAgent.indexOf('iPhone') > -1 && (document.body.scrollTop === 0 || eventType == 'orientationchange')) {
+        // console.log('reflow');
+        document.body.style.height = (window.innerHeight + 120) + 'px';
+        window.scrollTo(0, 1);
+        document.body.style.height = window.innerHeight + 'px';
+    } else {
+        // document.body.style.height = window.innerHeight + 'px';
+    }
+
+    var yPos = window.innerHeight * 0.5 - 300;
+
+    var tabletop = document.getElementById('tabletop');
+    tabletop.style.top = yPos + 'px';
+
+    var overlay = document.getElementById('overlay');
+    overlay.style.top = (yPos + 90) + 'px';
+
+    MAXSCROLL = WIDTH - window.innerWidth;
+}
+
+function startSplash() {
+    resize();
+    document.getElementById('wrap').style.opacity = 1;
+    scrollToMiddle();
 }
 
 var scrollRecognizer = null;
@@ -55,53 +78,45 @@ var scrollRecognizer = null;
 function init(event) {
     controller = new ProjectController();
 
-    window.addEventListener('resize', resize, false);
-    resize();
-
-    window.setTimeout(scrollToMiddle, 500);
-    scrollRecognizer = new ScrollRecognizer(window, 'scrollDelta');
-
-    document.body.style.height = (window.innerHeight + 120) + 'px';
-    window.setTimeout(function () {
-        window.scrollTo(0, 1);
-    }, 1000);
-
     var meta = document.getElementById('meta-viewport');
-    if (window.innerWidth < 500 || window.innerHeight < 500) {
-        meta.setAttribute('content', 'width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no');
+    if (screen.width < 500 || screen.height < 500) {
+        meta.setAttribute('content', 'width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no');
     } else {
         meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
     }
+
+    scrollRecognizer = new ScrollRecognizer(window, 'scrollDelta');
+    if (navigator.userAgent.indexOf('iPhone') > -1) {
+        // Gradients does not work well with iOS devices :(
+        // The height will be weird after hiding URL bar on iOS
+        document.body.style.background = '#CCC';
+        window.setTimeout(startSplash, 1000);
+    } else {
+        startSplash();
+    }
+
+    window.addEventListener('resize', resize, false);
+    window.addEventListener('orientationchange', resize, false);
 }
 
 var MAXSCROLL = 1500;
 var MINSCROLL = 0;
 
-function scrollDelta (delta) {
+function scrollDelta(delta) {
     var position = scrollPosition - delta;
+
+    // exponentially decaying overscroll
     if (scrollPosition < MINSCROLL && delta > 0) {
         position = scrollPosition - delta / (Math.pow(2, (MINSCROLL - scrollPosition) / 50) + 1);
     } else if (scrollPosition > MAXSCROLL && delta < 0) {
         position = scrollPosition - delta / (Math.pow(2, (scrollPosition - MAXSCROLL) / 50) + 1);
     }
-    //var position = Math.max(Math.min(scrollPosition - delta, WIDTH - window.innerWidth), 0);
+
     internalScrollTo(position);
 }
 
-function scrollToMiddle () {
+function scrollToMiddle() {
     scrollTableTo((WIDTH - window.innerWidth) / 2, true, 2);
-}
-
-function resize (event) {
-    var yPos = window.innerHeight * 0.4 - 250;
-
-    var tabletop = document.getElementById('tabletop');
-    tabletop.style.top = yPos + 'px';
-
-    var overlay = document.getElementById('overlay');
-    overlay.style.top = yPos + 90 + 'px';
-
-    MAXSCROLL = WIDTH - window.innerWidth;
 }
 
 document.addEventListener('DOMContentLoaded', init, false);

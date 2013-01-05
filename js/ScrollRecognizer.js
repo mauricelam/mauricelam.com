@@ -1,4 +1,4 @@
-//=> LowPassFilter
+//=> Utils LowPassFilter
 
 var ScrollRecognizer = function () { this.init.apply(this, arguments); };
 
@@ -10,55 +10,84 @@ ScrollRecognizer.prototype = new (function () {
     var steppingTimer = 0;
     var deceleration = 0;
     var lastEvent = null;
+    var startEvent = null;
+    var hasHorizontalScroll = false;
 
     this.init = function (target, action) {
-        document.addEventListener('mousewheel', this.handleWheel.bind(this), false); // WebKit
-        document.addEventListener('DOMMouseScroll', this.handleWheel.bind(this), false); // Firefox
+        this.$('handleWheel', 'touchesBegan', 'touchesMoved', 'touchesEnded', 'touchesEndedInCapturingPhase');
 
-        document.addEventListener('touchstart', this.touchesBegan.bind(this), false);
-        document.addEventListener('touchmove', this.touchesMoved.bind(this), false);
-        document.addEventListener('touchend', this.touchesEnded.bind(this), false);
+        document.addEventListener('mousewheel', this.$handleWheel, false); // WebKit
+        document.addEventListener('DOMMouseScroll', this.$handleWheel, false); // Firefox
+
+        document.addEventListener('touchstart', this.$touchesBegan, false);
+        document.addEventListener('touchmove', this.$touchesMoved, false);
+        document.addEventListener('touchend', this.$touchesEnded, false);
+
+        document.addEventListener('touchend', this.$touchesEndedInCapturingPhase, true);
 
         this.target = target;
         this.action = action;
     };
 
     this.handleWheel = function (event) {
-        var wheelDelta = (event.wheelDeltaX) ? event.wheelDeltaX : (event.axis == 1) ? event.detail * -40 : 0;
+        var wheelDelta = (event.wheelDelta) ? event.wheelDelta : event.detail * -40;
+        var horizontalWheelDelta = (event.wheelDeltaX) ? event.wheelDeltaX : (event.axis == 1) ? event.detail * -40 : 0;
+        if (horizontalWheelDelta !== 0 || hasHorizontalScroll) {
+            wheelDelta = horizontalWheelDelta;
+            hasHorizontalScroll = true;
+        }
         event.stopPropagation();
         event.preventDefault();
         var dx = wheelDelta / 4;
         this.target[this.action](dx);
     };
 
+    var scrollDirection = null;
+
     this.touchesBegan = function (event) {
-        if (steppingTimer) {
-            clearInterval(steppingTimer);
+        if (startEvent === null) {
+            if (steppingTimer) {
+                clearInterval(steppingTimer);
+            }
+            lastEvent = startEvent = event;
+            scrollDirection = null;
         }
-        lastEvent = event;
-        //event.preventDefault();
     };
 
     this.touchesMoved = function (event) {
-        event.preventDefault();
-        // chrome for android
-        var delta = event.touches[0].pageX - lastEvent.touches[0].pageX;
-        if (!delta) {
-            // iOS uses this better
-            delta = event.pageX - lastEvent.pageX;
+        if (scrollDirection == 'vertical') {
+            return;
+        } else if (scrollDirection == 'horizontal') {
+            event.preventDefault();
         }
+
+        if (Math.abs(Utils.getDeltaX(event, startEvent)) > 22) {
+            scrollDirection = 'horizontal';
+        } else if (Math.abs(Utils.getDeltaY(event, startEvent)) > 22) {
+            scrollDirection = 'vertical';
+        }
+
+        var delta = Utils.getDeltaX(event, lastEvent);
         this.target[this.action](delta);
         if (lastEvent) {
-            velocityMeter.addData(delta / (event.timeStamp - lastEvent.timeStamp) * 20);
+            velocityMeter.addData(delta / (event.timeStamp - lastEvent.timeStamp) * 25, event.timeStamp);
         }
         lastEvent = event;
     };
 
     this.touchesEnded = function (event) {
-        deceleration = velocityMeter.getData() * 1.5;
-        steppingTimer = window.setInterval(function () {
-            this.stepToCompletion();
-        }.bind(this), 20); // ~60 fps
+        if (event.touches.length === 0) {
+            deceleration = velocityMeter.getData(event.timeStamp) * 1.5;
+            steppingTimer = window.setInterval(function () {
+                this.stepToCompletion();
+            }.bind(this), 20); // ~60 fps
+        }
+    };
+
+    this.touchesEndedInCapturingPhase = function (event) {
+        if (event.touches.length === 0) {
+            lastEvent = startEvent = null;
+        }
     };
 
     this.stepToCompletion = function () {

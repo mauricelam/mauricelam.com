@@ -23,48 +23,6 @@ if (!Function.prototype.bind) {
   };
 }
 
-/****************************
- * Touch event additions
- ****************************/
-
-var touchEventExtension = {
-    startEvent: null,
-    lastEvent: null
-};
-
-document.addEventListener('DOMContentLoaded', function () {
-    document.addEventListener('touchstart', touchEventExtension.touchStart, true);
-    document.addEventListener('touchmove', touchEventExtension.touchMove, true);
-    document.addEventListener('touchend', touchEventExtension.touchEnd, true);
-}, false);
-
-touchEventExtension.touchStart = function (event) {
-    touchEventExtension.lastEvent = touchEventExtension.startEvent = event;
-};
-
-touchEventExtension.touchMove = function (event) {
-    touchEventExtension.lastEvent = event;
-};
-
-touchEventExtension.touchEnd = function (event) {
-};
-
-if (window.TouchEvent) {
-    
-    Object.defineProperty(TouchEvent.prototype, 'lastEvent', {
-        get: function () {
-            return touchEventExtension.lastEvent;
-        }
-    });
-
-    Object.defineProperty(TouchEvent.prototype, 'startEvent', {
-        get: function () {
-            return touchEventExtension.startEvent;
-        }
-    });
-
-}
-
  /****************************
  * Canvas additions
  ****************************/

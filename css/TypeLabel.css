@@ -29,11 +29,11 @@
 }
 
 .typelabel.active:hover {
-    background-color: #CCC;
+    background-color: #AAA;
 }
 
 .typelabel:hover {
-    background-color: #888;
+    background-color: #666;
     color: black;
 }
 

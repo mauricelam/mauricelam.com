@@ -1,14 +1,19 @@
-//=> TypeLabel
+//=> TypeLabel TapGestureRecognizer Modernizr
 
-var Overlay = function () { this.init.apply(this, arguments); };
+var Overlay = function Overlay () { this.init.apply(this, arguments); };
 
 Overlay.prototype = new (function () {
 
     this.init = function (id) {
+        this.$('click');
+
         if (!Overlay.sharedElement) {
             var overlay = Overlay.sharedElement = document.getElementById('overlay');
-            overlay.addEventListener('click', Overlay.click, false);
-            overlay.addEventListener('touchend', Overlay.click, false);
+            if (Modernizr.touch) {
+                overlay.addEventListener('tap', this.$click, false);
+            } else {
+                overlay.addEventListener('click', this.$click, false);
+            }
             overlay.content = overlay.querySelector('.content');
             overlay.leftArrow = overlay.querySelector('.leftarrow');
             overlay.rightArrow = overlay.querySelector('.rightarrow');
@@ -42,10 +47,6 @@ Overlay.prototype = new (function () {
         this.content = JSON.parse(xhr.responseText);
         this.displayContent();
     };
-
-    this.createOverlayHTML = function () {
-        return html;
-    }
 
     this.hide = function () {
         this.visible = false;
@@ -87,10 +88,8 @@ Overlay.prototype = new (function () {
         }
     };
 
-    Overlay.click = function (event) {
-        if (event.type == 'click' || Math.abs(event.lastEvent.pageX - event.startEvent.pageX) < 44) {
-            event.stopPropagation();
-        }
+    this.click = function (event) {
+        event.stopPropagation();
     };
 
 })();

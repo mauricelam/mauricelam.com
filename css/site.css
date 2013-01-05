@@ -1,37 +1,25 @@
-@font-face
-{
-    font-family: HelveticaNeueLight;
-    src: url('/css/HelveticaNeueLight.ttf');
-    font-weight: 100;
-}
-
 html {
     height: 100%;
 }
 
 body {
     background: -webkit-linear-gradient(top, #DDDDDD 0%, #CCCCCC 100%);
-    background: -moz-linear-gradient(top, #DDDDDD 0%, #CCCCCC 100%);
-    background: -o-linear-gradient(top, #DDDDDD 0%, #CCCCCC 100%);
-    background: -ms-linear-gradient(top, #DDDDDD 0%, #CCCCCC 100%);
-    background:    linear-gradient(top, #DDDDDD 0%, #CCCCCC 100%);
+    background:    -moz-linear-gradient(top, #DDDDDD 0%, #CCCCCC 100%);
+    background:      -o-linear-gradient(top, #DDDDDD 0%, #CCCCCC 100%);
+    background:     -ms-linear-gradient(top, #DDDDDD 0%, #CCCCCC 100%);
+    background:         linear-gradient(top, #DDDDDD 0%, #CCCCCC 100%);
+
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: HelveticaNeueLight;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
 }
 
 ::-webkit-scrollbar {
     /* hide scrollbar */
     width: 0;
-}
-
-#wrap {
-    -webkit-perspective: 800;
-       -moz-perspective: 800px;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+    height: 0;
 }
 
 /* Firefox only */
@@ -41,56 +29,74 @@ body {
     }
 }
 
-/*
-Too much CPUs
-#breathe {
-    -webkit-animation: breathe 2.3s ease-in-out 0 infinite alternate;
-    -webkit-transform-style: preserve-3d;
+#wrap {
+    -webkit-perspective: 800;
+    -moz-perspective: 800px;
+    overflow: hidden;
     width: 100%;
     height: 100%;
-}
 
-@-webkit-keyframes breathe {
-    from { -webkit-transform: none; }
-    to { -webkit-transform: translateY(2px) scale(0.995, 0.995); }
+    opacity: 0;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s;
 }
-*/
 
 #tabletop {
+    vertical-align: middle;
     border-radius: 5px;
-    -webkit-transform: rotateX(70deg);
-    -moz-transform: rotateX(70deg);
+
+    -webkit-transform: rotateX(50deg) translateY(-300px) translateX(-1500px) scale(0.5);
+    -moz-transform:    rotateX(50deg) translateY(-300px) translateX(-1500px) scale(0.5);
+    -o-transform:      rotateX(50deg) translateY(-300px) translateX(-1500px) scale(0.5);
+    -ms-transform:     rotateX(50deg) translateY(-300px) translateX(-1500px) scale(0.5);
+    transform:         rotateX(50deg) translateY(-300px) translateX(-1500px) scale(0.5);
+
     -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -webkit-transform-origin: 20% 150%;
-    -moz-transform-origin: 20% 150%;
-    background: #F2F2F2 repeat;
+    -moz-transform-style:    preserve-3d;
+    -ms-transform-style:     preserve-3d;
+    transform-style:         preserve-3d;
+
+    -webkit-transform-origin: 50% 150%;
+    -moz-transform-origin:    50% 150%;
+    -o-transform-origin:      50% 150%;
+    -ms-transform-origin:     50% 150%;
+    transform-origin:         50% 150%;
+    background: #F2F2F2;
+
+    background: -webkit-linear-gradient(top, #EEEEEE 0%, #F8F8F8 70%, #E5E5E5 100%);
+    background: -moz-linear-gradient(top, #EEEEEE 0%, #F8F8F8 70%, #E5E5E5 100%);
+    background: -o-linear-gradient(top, #EEEEEE 0%, #F8F8F8 70%, #E5E5E5 100%);
+    background: -ms-linear-gradient(top, #EEEEEE 0%, #F8F8F8 70%, #E5E5E5 100%);
+    background: linear-gradient(top, #EEEEEE 0%, #F8F8F8 70%, #E5E5E5 100%);
+
     width: 4000px;
     height: 500px;
     position: absolute;
-
-    -ms-transform: translate(0, 70px);
 }
 
 #tableedge {
     position: absolute;
     width: 3994px;
     height: 30px;
-    background: #666666;
+    background: #555555; /** Better drawing performance than gradient, and not much visual difference */
     top: 100%;
     left: 3px;
 
-    -o-transform: rotateX(-80deg);
-    -ms-transform: rotateX(-80deg);
     -webkit-transform: rotateX(-80deg);
-    -moz-transform: rotateX(-80deg);
-    transform: rotateX(-80deg);
+    -moz-transform:    rotateX(-80deg);
+    -o-transform:      rotateX(-80deg);
+    -ms-transform:     rotateX(-80deg);
+    transform:         rotateX(-80deg);
 
-    -o-transform-origin: 0 0;
-    -ms-transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
-    -moz-transform-origin: 0 0;
-    transform-origin: 0 0;
+    -moz-transform-origin:    0 0;
+    -o-transform-origin:      0 0;
+    -ms-transform-origin:     0 0;
+    transform-origin:         0 0;
 }
 
 .nameplate {
@@ -116,23 +122,23 @@ Too much CPUs
     background: -webkit-linear-gradient(left, #EEE 0%, #DDD 30%, #F6F6F6 50%, #DDD 70%, #EEE 100%);
     background: -moz-linear-gradient(left, #EEE 0%, #DDD 30%, #F6F6F6 50%, #DDD 70%, #EEE 100%);
 
-    -o-transform: rotateX(-30deg);
-    -ms-transform: rotateX(-30deg);
+    -o-transform:      rotateX(-30deg);
+    -ms-transform:     rotateX(-30deg);
     -webkit-transform: rotateX(-30deg);
-    -moz-transform: rotateX(-30deg);
-    transform: rotateX(-30deg);
+    -moz-transform:    rotateX(-30deg);
+    transform:         rotateX(-30deg);
 
-    -o-transform-origin: 0 100%;
-    -ms-transform-origin: 0 100%;
+    -o-transform-origin:      0 100%;
+    -ms-transform-origin:     0 100%;
     -webkit-transform-origin: 0 100%;
-    -moz-transform-origin: 0 100%;
-    transform-origin: 0 100%;
+    -moz-transform-origin:    0 100%;
+    transform-origin:         0 100%;
 
-    -o-user-select: none;
-    -ms-user-select: none;
+    -o-user-select:      none;
+    -ms-user-select:     none;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+    -moz-user-select:    none;
+    user-select:         none;
 }
 
 #nameplate-shadow {
@@ -140,11 +146,11 @@ Too much CPUs
     background-color: rgba(0,0,0,0.3);
     box-shadow: 0 0 5px rgba(0,0,0,0.6);
 
-    -o-transform: translateZ(1px);
-    -ms-transform: translateZ(1px);
-    -webkit-transform: translateZ(1px);
-    -moz-transform: translateZ(1px);
-    transform: translateZ(1px);
+    -o-transform:       translateZ(1px);
+    -ms-transform:      translateZ(1px);
+    -webkit-transform:  translateZ(1px);
+    -moz-transform:     translateZ(1px);
+    transform:          translateZ(1px);
 }
 
 #nameplate-group {

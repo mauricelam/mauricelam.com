@@ -1,4 +1,4 @@
-//=> Project
+//=> Project Modernizr TapGestureRecognizer
 
 var ProjectController = function () { this.init.apply(this, arguments); };
 
@@ -8,15 +8,15 @@ ProjectController.prototype = new (function () {
         this.projects = [];
         this.selectedProject = null;
 
-        if ("ontouchstart" in window) {
-            document.addEventListener('touchend', this.clickTable.bind(this), false);
+        if (Modernizr.touch) {
+            document.addEventListener('tap', this.clickTable.bind(this), false);
         } else {
             document.addEventListener('click', this.clickTable.bind(this), false);
         }
         window.addEventListener('resize', this.windowResized.bind(this), false);
 
         var projectElements = document.querySelectorAll('.project');
-        
+
         for (var i = 0, count = projectElements.length; i < count; i++) {
             var newProject = new Project(projectElements[i]);
             newProject.delegate = this;
@@ -60,7 +60,7 @@ ProjectController.prototype = new (function () {
     };
 
     this.windowResized = function (event) {
-        if (this.selectedProject == null) {
+        if (!this.selectedProject) {
             return;
         }
         var position = this.selectedProject.element.offsetLeft - window.innerWidth/2 + 300;
@@ -71,9 +71,7 @@ ProjectController.prototype = new (function () {
     };
 
     this.clickTable = function (event) {
-        if (event.type == 'click' || Math.abs(event.lastEvent.pageX - event.startEvent.pageX) < 44) {
-            this.deselectProject();
-        }
+        this.deselectProject();
     };
 
 })();

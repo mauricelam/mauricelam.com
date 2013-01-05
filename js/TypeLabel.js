@@ -26,7 +26,7 @@ TypeLabel.prototype = new (function () {
         var span = document.createElement('span');
         this.element.appendChild(span);
 
-        span.innerHTML = labels[type];
+        // span.innerHTML = labels[type];
     };
     
 

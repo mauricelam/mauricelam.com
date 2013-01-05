@@ -8,13 +8,17 @@ LowPassFilter.prototype = new (function () {
         this.lastDataTime = 0;
     };
 
-    this.addData = function (data) {
+    this.addData = function (data, time) {
         this.data = this.data * LowPassFilter.SMOOTHING + data * (1 - LowPassFilter.SMOOTHING);
-        this.lastDataTime = new Date().getTime();
+        this.lastDataTime = time || new Date().getTime();
     };
 
-    this.getData = function () {
-        return this.data * Math.pow(LowPassFilter.SMOOTHING, (new Date().getTime() - this.lastDataTime) / 20);
+    this.getData = function (time) {
+        time = time || new Date().getTime();
+        if (this.lastDataTime === 0) {
+            return 0;
+        }
+        return this.data * Math.pow(LowPassFilter.SMOOTHING, (time - this.lastDataTime) / 20);
     };
 
     this.reset = function () {
