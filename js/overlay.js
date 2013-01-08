@@ -88,6 +88,11 @@ Overlay.prototype = new (function () {
         }
     };
 
+    this.setPosition = function (position) {
+        this.position = position;
+        Overlay.sharedElement.style.left = position + 'px';
+    };
+
     this.click = function (event) {
         event.stopPropagation();
     };

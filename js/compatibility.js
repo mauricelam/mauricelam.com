@@ -4,13 +4,13 @@
 
 if (!Function.prototype.bind) {
     Function.prototype.bind = function (oThis) {
-        if (typeof this !== "function") {
+        if (typeof this !== 'function') {
             // closest thing possible to the ECMAScript 5 internal IsCallable function
-            throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+            throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
         }
  
-        var aArgs = Array.prototype.slice.call(arguments, 1), 
-        fToBind = this, 
+        var aArgs = Array.prototype.slice.call(arguments, 1),
+        fToBind = this,
         fNOP = function () {},
         fBound = function () {
             return fToBind.apply(this instanceof fNOP && oThis ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
@@ -29,14 +29,14 @@ if (!Function.prototype.bind) {
 
  HTMLCanvasElement.prototype.applyFilter = function (func) {
     // WARNING: this function is fairly slow as you would expect performing math on every pixel using CPU
-    var context = this.getContext("2d");
+    var context = this.getContext('2d');
     var width = this.width, height = this.height;
     var imageData;
     
     try {
         imageData = context.getImageData( 0, 0, width, height );
     } catch(e) {
-        throw new Error("unable to access image data: " + e);
+        throw new Error('unable to access image data: ' + e);
     }
 
     var pixels = imageData.data;
@@ -69,7 +69,7 @@ if (!Function.prototype.bind) {
 
  HTMLCanvasElement.prototype.restoreCache = function (id) {
     var cache = this['cache_' + id];
-    if (cache) {    
+    if (cache) {
         var context = this.getContext('2d');
         context.clearRect(0, 0, this.width, this.height);
         context.drawImage(cache, 0, 0);
@@ -85,7 +85,7 @@ if (!Function.prototype.bind) {
  * MIT LICENSE
  */
 
-if (!("classList" in document.documentElement) && Object.defineProperty && typeof HTMLElement !== 'undefined') {
+if (!('classList' in document.documentElement) && Object.defineProperty && typeof HTMLElement !== 'undefined') {
     Object.defineProperty(HTMLElement.prototype, 'classList', {
         get: function() {
             var self = this;
@@ -95,11 +95,11 @@ if (!("classList" in document.documentElement) && Object.defineProperty && typeo
                         index = classes.indexOf(value);
 
                     fn(classes, index, value);
-                    self.className = classes.join(" ");
-                }
+                    self.className = classes.join(' ');
+                };
             }
 
-            var ret = {                    
+            var ret = {
                 add: update(function(classes, index, value) {
                     ~index || classes.push(value);
                 }),

@@ -1,6 +1,7 @@
 #projects {
     text-align: center;
     z-index: 999999;
+    white-space: nowrap;
 
     -webkit-transform: translate3d(0, 150px, 2px);
     -moz-transform: translate3d(0, 150px, 2px);

@@ -73,18 +73,20 @@ body {
     background: -ms-linear-gradient(top, #EEEEEE 0%, #F8F8F8 70%, #E5E5E5 100%);
     background: linear-gradient(top, #EEEEEE 0%, #F8F8F8 70%, #E5E5E5 100%);
 
-    width: 4000px;
+    /*width: 4000px;*/
     height: 500px;
     position: absolute;
+    padding: 0 100px;
 }
 
 #tableedge {
     position: absolute;
-    width: 3994px;
+    width: auto;
     height: 30px;
-    background: #555555; /** Better drawing performance than gradient, and not much visual difference */
     top: 100%;
     left: 3px;
+    right: 3px;
+    background: #555555; /** Better drawing performance than gradient, and not much visual difference */
 
     -webkit-transform: rotateX(-80deg);
     -moz-transform:    rotateX(-80deg);
@@ -122,11 +124,11 @@ body {
     background: -webkit-linear-gradient(left, #EEE 0%, #DDD 30%, #F6F6F6 50%, #DDD 70%, #EEE 100%);
     background: -moz-linear-gradient(left, #EEE 0%, #DDD 30%, #F6F6F6 50%, #DDD 70%, #EEE 100%);
 
-    -o-transform:      rotateX(-30deg);
-    -ms-transform:     rotateX(-30deg);
-    -webkit-transform: rotateX(-30deg);
-    -moz-transform:    rotateX(-30deg);
-    transform:         rotateX(-30deg);
+    -o-transform:      rotateX(-30deg) translateZ(1px);
+    -ms-transform:     rotateX(-30deg) translateZ(1px);
+    -webkit-transform: rotateX(-30deg) translateZ(1px);
+    -moz-transform:    rotateX(-30deg) translateZ(1px);
+    transform:         rotateX(-30deg) translateZ(1px);
 
     -o-transform-origin:      0 100%;
     -ms-transform-origin:     0 100%;

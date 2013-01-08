@@ -1,14 +1,12 @@
-//=> compatibility ScrollRecognizer ProjectController Modernizr
+//=> compatibility Utils ScrollRecognizer ProjectController Modernizr UrlBar
 
-var WIDTH = 4000;
+var WIDTH = 0;
+var MAXSCROLL = 1500;
+var MINSCROLL = 0;
 var ROTATEFACTOR = 0.005;
+
 var scrollPosition = 0;
 var controller = null;
-
-function scrollTableTo (position, animated, duration) {
-    position = Math.max(Math.min(position, WIDTH - window.innerWidth), 0);
-    internalScrollTo(position, animated, duration);
-}
 
 function internalScrollTo(position, animated, duration) {
     scrollPosition = Math.round(position);
@@ -45,15 +43,15 @@ function internalScrollTo(position, animated, duration) {
     tabletop.dispatchEvent(scrollEvent);
 }
 
+function scrollTableTo (position, animated, duration) {
+    // position = Math.max(Math.min(position, MAXSCROLL), MINSCROLL);
+    internalScrollTo(position, animated, duration);
+}
+
 function resize(event) {
     var eventType = event && event.type;
-    if (navigator.userAgent.indexOf('iPhone') > -1 && (document.body.scrollTop === 0 || eventType == 'orientationchange')) {
-        // console.log('reflow');
-        document.body.style.height = (window.innerHeight + 120) + 'px';
-        window.scrollTo(0, 1);
-        document.body.style.height = window.innerHeight + 'px';
-    } else {
-        // document.body.style.height = window.innerHeight + 'px';
+    if (navigator.userAgent.indexOf('iPhone') > -1 && (event === undefined || eventType == 'orientationchange')) {
+        UrlBar.hide();
     }
 
     var yPos = window.innerHeight * 0.5 - 300;
@@ -70,12 +68,14 @@ function resize(event) {
 function startSplash() {
     resize();
     document.getElementById('wrap').style.opacity = 1;
-    scrollToMiddle();
+    scrollTableTo((MAXSCROLL - MINSCROLL) / 2, true, 2);
 }
 
 var scrollRecognizer = null;
 
 function init(event) {
+    WIDTH = document.getElementById('tabletop').getSize().width;
+
     controller = new ProjectController();
 
     var meta = document.getElementById('meta-viewport');
@@ -90,17 +90,14 @@ function init(event) {
         // Gradients does not work well with iOS devices :(
         // The height will be weird after hiding URL bar on iOS
         document.body.style.background = '#CCC';
-        window.setTimeout(startSplash, 1000);
-    } else {
-        startSplash();
     }
+    // For iPhone, this wait for window.scrollTo to be possible (to hide the URL bar)
+    // For others, wait for contents to be reasonably loaded
+    window.setTimeout(startSplash, 1000);
 
     window.addEventListener('resize', resize, false);
     window.addEventListener('orientationchange', resize, false);
 }
-
-var MAXSCROLL = 1500;
-var MINSCROLL = 0;
 
 function scrollDelta(delta) {
     var position = scrollPosition - delta;
@@ -113,10 +110,6 @@ function scrollDelta(delta) {
     }
 
     internalScrollTo(position);
-}
-
-function scrollToMiddle() {
-    scrollTableTo((WIDTH - window.innerWidth) / 2, true, 2);
 }
 
 document.addEventListener('DOMContentLoaded', init, false);

@@ -44,12 +44,18 @@ Project.prototype = new (function () {
     this.select = function () {
         if (!this.isSelected()) {
             this.element.classList.add('selected');
-            setTimeout(function () { if (this.isSelected()) this.overlay.show(); }.bind(this), 500);
+            setTimeout(function () {
+                if (this.isSelected()) {
+                    var position = this.getOverlayPosition();
 
-            if (this.delegate && typeof this.delegate.projectDidSelect) {
+                    this.overlay.setPosition(position);
+                    this.overlay.show();
+                }
+             }.bind(this), 500);
+
+            if (this.delegate && typeof this.delegate.projectDidSelect === 'function') {
                 this.delegate.projectDidSelect(this);
             }
-            this.setOverlayPosition();
         }
     };
 
@@ -67,22 +73,22 @@ Project.prototype = new (function () {
         return this.element.classList.contains('selected');
     };
 
-    this.setOverlayPosition = function () {
-        var position = this.element.offsetLeft - scrollPosition;
-        position *= 1.18;
-        position += 280;
+    this.getImagePosition = function () {
+        var image = this.element.querySelector('.project-image');
+        return Utils.convertPointFromNodeToPage(image).x + 350;
+    };
 
-        if (position + 250 > window.innerWidth) {
-            position -= 720;
-        }
-        Overlay.sharedElement.style.left = position + 'px';
+    this.getOverlayPosition = function () {
+        return Math.min(this.getImagePosition(), window.innerWidth - 350);
     };
 
     this.scroll = function (event) {
         if (this.overlay.visible) {
-            this.setOverlayPosition();
-            var screenOffset = this.element.offsetLeft - scrollPosition;
-            if (screenOffset < -50 || screenOffset > window.innerWidth - 200) {
+            var position = this.getOverlayPosition();
+            this.overlay.setPosition(position);
+
+            var imagePosition = this.getImagePosition();
+            if (imagePosition < 20 || imagePosition > window.innerWidth + 30) {
                 this.deselect();
             }
         }

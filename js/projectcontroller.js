@@ -5,13 +5,15 @@ var ProjectController = function () { this.init.apply(this, arguments); };
 ProjectController.prototype = new (function () {
 
     this.init = function () {
+        this.$('clickTable');
+
         this.projects = [];
         this.selectedProject = null;
 
         if (Modernizr.touch) {
-            document.addEventListener('tap', this.clickTable.bind(this), false);
+            document.addEventListener('tap', this.$clickTable, false);
         } else {
-            document.addEventListener('click', this.clickTable.bind(this), false);
+            document.addEventListener('click', this.$clickTable, false);
         }
         window.addEventListener('resize', this.windowResized.bind(this), false);
 
@@ -34,7 +36,7 @@ ProjectController.prototype = new (function () {
         document.getElementById('tabletop').classList.remove('blurred');
         this.selectedProject = null;
 
-        for (var i=0, count=this.projects.length; i < count; i++) {
+        for (var i = 0, count = this.projects.length; i < count; i++) {
             if (this.projects[i] != this.selectedProject) {
                 this.projects[i].unblur();
             }
@@ -43,16 +45,13 @@ ProjectController.prototype = new (function () {
 
     this.projectDidSelect = function (project) {
         this.deselectProject();
-        var position = project.element.offsetLeft - window.innerWidth/2 + 300;
-        if (position - WIDTH + window.innerWidth > 100) {
-            position -= 300;
-        }
+        var position = project.element.offsetLeft - window.innerWidth/2 + 250;
         scrollTableTo(position, true);
 
         document.getElementById('tabletop').classList.add('blurred');
         this.selectedProject = project;
 
-        for (var i=0, count=this.projects.length; i < count; i++) {
+        for (var i = 0, count = this.projects.length; i < count; i++) {
             if (this.projects[i] != project) {
                 this.projects[i].blur();
             }
@@ -63,10 +62,7 @@ ProjectController.prototype = new (function () {
         if (!this.selectedProject) {
             return;
         }
-        var position = this.selectedProject.element.offsetLeft - window.innerWidth/2 + 300;
-        if (position - WIDTH + window.innerWidth > 100) {
-            position -= 300;
-        }
+        var position = project.element.offsetLeft - window.innerWidth/2 + 250;
         scrollTableTo(position, false);
     };
 
