@@ -9,6 +9,7 @@ Overlay.prototype = new (function () {
 
         if (!Overlay.sharedElement) {
             var overlay = Overlay.sharedElement = document.getElementById('overlay');
+            overlay.style.p.transition = '--transform 0.3s, opacity 0.3s';
             if (Modernizr.touch) {
                 overlay.addEventListener('tap', this.$click, false);
             } else {

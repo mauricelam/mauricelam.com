@@ -1,4 +1,4 @@
-//=> compatibility Utils ScrollRecognizer ProjectController Modernizr UrlBar
+//=> compatibility Utils ScrollRecognizer ProjectController UrlBar CompatibilityCheck
 
 var WIDTH = 0;
 var MAXSCROLL = 1500;
@@ -18,24 +18,15 @@ function internalScrollTo(position, animated, duration) {
         duration = 0.35;
     }
 
-    if (animated) {
-        tabletop.style[Modernizr.prefixed('transition')] = Modernizr.cssPrefixed('transform') + ' ' + duration + 's';
-    } else {
-        tabletop.style[Modernizr.prefixed('transition')] = 'none';
-    }
-
-    //tabletop.style[Modernizr.prefixed('transform')] = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
-    tabletop.style[Modernizr.prefixed('transform')] = 'rotateX(10deg) translateX(' + (-scrollPosition) + 'px)';
+    tabletop.style.p.transition = (animated) ? '--transform ' + duration + 's' : 'none';
+    //tabletop.style.p.transform = 'rotateX(10deg) rotateY('+ -rotation +'rad) rotateZ(' + rotation + 'rad) translateX('+ (-scrollPosition) +'px)';
+    tabletop.style.p.transform = 'rotateX(10deg) translateX(' + (-scrollPosition) + 'px)';
 
     var nameplate = document.getElementById('nameplate');
     var nameplateWidth = parseInt(window.getComputedStyle(nameplate).width, 10);
     var addPercent = (-scrollPosition + (WIDTH / 2) - nameplateWidth) / 3;
 
-    if (animated) {
-        nameplate.style[Modernizr.prefixed('transition')] = 'background-position ' + duration + 's';
-    } else {
-        nameplate.style[Modernizr.prefixed('transition')] = 'none';
-    }
+    nameplate.style.p.transition = (animated) ? 'background-position ' + duration + 's' : 'none';
     nameplate.style.backgroundPosition = -addPercent + 'px 0';
 
     var scrollEvent = document.createEvent('CustomEvent');
@@ -60,20 +51,54 @@ function resize(event) {
     tabletop.style.top = yPos + 'px';
 
     var overlay = document.getElementById('overlay');
-    overlay.style.top = (yPos + 90) + 'px';
+    overlay.style.top = (yPos + 55) + 'px';
 
     MAXSCROLL = WIDTH - window.innerWidth;
 }
 
+function scrollDelta(delta) {
+    var position = scrollPosition - delta;
+
+    // exponentially decaying overscroll
+    if (scrollPosition < MINSCROLL && delta > 0) {
+        position = scrollPosition - delta / (Math.pow(2, (MINSCROLL - scrollPosition) / 50) + 1);
+    } else if (scrollPosition > MAXSCROLL && delta < 0) {
+        position = scrollPosition - delta / (Math.pow(2, (scrollPosition - MAXSCROLL) / 50) + 1);
+    }
+
+    internalScrollTo(position);
+}
+
 function startSplash() {
     resize();
-    document.getElementById('wrap').style.opacity = 1;
+    var wrap = document.getElementById('wrap');
+    wrap.style.p.transition = 'opacity 1s';
+    wrap.style.opacity = 1;
     scrollTableTo((MAXSCROLL - MINSCROLL) / 2, true, 2);
 }
 
 var scrollRecognizer = null;
 
+function setMessage(message, header) {
+    var contentBox = document.querySelector('#message > .content');
+    var headerBox = document.querySelector('#message > .heading');
+
+    if (message !== undefined) contentBox.innerHTML = message;
+    if (header !== undefined) headerBox.innerHTML = header;
+
+    if (message === null) document.getElementById('message').style.display = 'none';
+}
+
+
+
 function init(event) {
+    var compatibility = CompatibilityCheck.getStatus();
+    if (compatibility !== null) {
+        setMessage('This site requires ' + compatibility + ', but your browser does not support it. ', '=(');
+        return;
+    }
+    setMessage(null);
+
     WIDTH = document.getElementById('tabletop').getSize().width;
 
     controller = new ProjectController();
@@ -97,19 +122,6 @@ function init(event) {
 
     window.addEventListener('resize', resize, false);
     window.addEventListener('orientationchange', resize, false);
-}
-
-function scrollDelta(delta) {
-    var position = scrollPosition - delta;
-
-    // exponentially decaying overscroll
-    if (scrollPosition < MINSCROLL && delta > 0) {
-        position = scrollPosition - delta / (Math.pow(2, (MINSCROLL - scrollPosition) / 50) + 1);
-    } else if (scrollPosition > MAXSCROLL && delta < 0) {
-        position = scrollPosition - delta / (Math.pow(2, (scrollPosition - MAXSCROLL) / 50) + 1);
-    }
-
-    internalScrollTo(position);
 }
 
 document.addEventListener('DOMContentLoaded', init, false);

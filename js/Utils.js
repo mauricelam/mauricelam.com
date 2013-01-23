@@ -1,5 +1,7 @@
 //=> Modernizr
 
+/*global CSSStyleDeclaration Element WebKitPoint */
+
 var Utils = {};
 
 (function () {
@@ -10,8 +12,44 @@ var Utils = {};
 
     Modernizr.cssPrefixed = function (prop) {
         var prefixed = Modernizr.prefixed(prop);
-        return prefixed.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
+        return prefixed && prefixed.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
     };
+
+    /**********
+     * Prefixed properties
+     **********/
+
+    var prefixedProperties = ['transform', 'transition'];
+
+    function CSSPrefixer(style) {
+        this.createProp = function (prop) {
+            var prefixedProp = Modernizr.prefixed(prop);
+            var definition = {
+                set: function (value) {
+                    if (typeof value === 'string') {
+                        value = value.replace(/--(.+?)\b/g, function (str, m1) { return Modernizr.cssPrefixed(m1); });
+                    }
+                    style[prefixedProp] = value;
+                },
+                get: function () { return style[prefixedProp]; }
+            };
+
+            Object.defineProperty(this, prop, definition);
+        };
+
+        for (var i = 0, count = prefixedProperties.length; i < count; i++) {
+            this.createProp(prefixedProperties[i]);
+        }
+    }
+
+    var pDefinition = {
+        get: function () {
+            if (!this['-style'])
+                Object.defineProperty(this, '-style', { 'value': new CSSPrefixer(this) });
+            return this['-style'];
+        }
+    };
+    Object.defineProperty(CSSStyleDeclaration.prototype, 'p', pDefinition);
 
     /**********
      * Element sizes
@@ -171,19 +209,19 @@ var Utils = {};
      * Function binding
      **********/
 
-    Object.defineProperty(Object.prototype, '$', {
-        value: function () {
-            for (var i = 0; i < arguments.length; i++) {
-                var method = arguments[i];
-                if (this['$' + method] === undefined) {
-                    this['$' + method] = this[method].bind(this);
-                }
+    var bindFunction = function () {
+        for (var i = 0, count = arguments.length; i < count; i++) {
+            var method = arguments[i];
+            if (this['$' + method] === undefined) {
+                this['$' + method] = this[method].bind(this);
+            }
 
-                if (arguments.length === 1) {
-                    return this['$' + method];
-                }
+            if (arguments.length === 1) {
+                return this['$' + method];
             }
         }
-    });
+    };
+
+    Object.defineProperty(Object.prototype, '$', { 'value': bindFunction });
 
 }());

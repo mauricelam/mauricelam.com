@@ -1,6 +1,6 @@
 .project-overlay {
     width: 320px;
-    height: 300px;
+    height: 380px;
     background-color: rgba(0,0,0,0.8);
     z-index: 999999;
     padding: 10px;
@@ -16,12 +16,6 @@
     -o-transform: scaleY(1);
     -ms-transform: scaleY(1);
     transform: scaleY(1);
-
-    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-    -moz-transition:    -moz-transform 0.3s, opacity 0.3s;
-    -o-transition:      -o-transform 0.3s, opacity 0.3s;
-    -ms-transition:     -ms-transform 0.3s, opacity 0.3s;
-    transition:         transform 0.3s, opacity 0.3s;
 }
 
 .project-overlay > .content > .name {

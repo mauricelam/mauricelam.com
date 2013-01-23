@@ -4,5 +4,5 @@
     "types":{
     	"webapp":"http://210.0.215.18/~maurice/cast/index.php"
     },
-    "description":"CAST is the acronym for Composition Analyzing and Statistics Tool. It is a project I've done in secondary school to provide basic statistical information about a plain text file. "
+    "description":"CAST (Composition Analyzing and Statistics Tool) analyzes and provides basic information about plain text files. It uses various regular expressions to check for number of words, lines, paragraphs and special symbols. It also (used to) check the spelling from online dictionaries like Merriam-Webster and Oxford Dictionary. "
 }

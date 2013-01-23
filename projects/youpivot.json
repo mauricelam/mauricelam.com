@@ -5,5 +5,5 @@
     	"research":"http://youpivot.com/",
     	"chromeextension":"https://chrome.google.com/webstore/detail/bhojlafenkipmbhpfhoojcflnplpohoo"
     },
-    "description":"YouPivot is a revolutionary search technique for your personal history. It is also a research project I am working on. It is implemented in the form of a background daemon and a chrome extension so your browser history is recorded into a database and viewed in a visual and organized way in a browser window. "
+    "description":"YouPivot is a revolutionary search technique for your personal history. It is also a research project I worked on. Combining the power of a background daemon and a front-end Chrome extension, you can view and access your personal digital history in a visual and organized way right in your browser. "
 }

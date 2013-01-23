@@ -27,6 +27,11 @@ Project.prototype = new (function () {
         shadowCanvas.classList.add('project-image-shadow');
         element.appendChild(shadowCanvas);
 
+        var nameTag = document.createElement('div');
+        nameTag.classList.add('nametag');
+        nameTag.innerHTML = element.getAttribute('data-name');
+        element.appendChild(nameTag);
+
         if (Modernizr.touch) {
             var tapRecognizer = imageCanvas.addEventListener('tap', this.clickIcon.bind(this), false);
             tapRecognizer.stopsPropagation = true;
