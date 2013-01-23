@@ -12,6 +12,8 @@ TypeLabel.prototype = new (function () {
     TypeLabel.TYPE_STARTUP = 'startup';
     TypeLabel.TYPE_INTERN = 'intern';
 
+    TypeLabel.TYPE_LINK = 'link';
+
     
     this.init = function (type, link) {
         this.element = document.createElement('a');
@@ -40,5 +42,7 @@ TypeLabel.prototype = new (function () {
     labels[TypeLabel.TYPE_RESEARCH] = 'Research';
     labels[TypeLabel.TYPE_STARTUP] = 'Startup';
     labels[TypeLabel.TYPE_INTERN] = 'Intern';
+    
+    labels[TypeLabel.TYPE_LINK] = 'Link';
 
 })();

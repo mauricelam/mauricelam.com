@@ -71,3 +71,8 @@
     background-image: url('/images/webapp.png');
     background-size: 60px 60px;
 }
+
+.typelabel.link {
+    background-image: url('/images/link.png');
+    background-size: 60px 60px;
+}
