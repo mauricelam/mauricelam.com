@@ -1,10 +1,10 @@
-//=> Overlay Utils Modernizr TapGestureRecognizer
+//=> JP TapEvent Overlay Utils Modernizr
 
-var Project = function () { this.init.apply(this, arguments); };
+var Project = function Project () { JP.object(this, arguments); };
 
-Project.prototype = new (function () {
+Project.prototype = {
 
-    this.init = function (element) {
+    init: function (element) {
         this.delegate = null;
         this.element = element;
         element.item = this;
@@ -32,62 +32,57 @@ Project.prototype = new (function () {
         nameTag.innerHTML = element.getAttribute('data-name');
         element.appendChild(nameTag);
 
-        if (Modernizr.touch) {
-            var tapRecognizer = imageCanvas.addEventListener('tap', this.clickIcon.bind(this), false);
-            tapRecognizer.stopsPropagation = true;
-        } else {
-            imageCanvas.addEventListener('click', this.clickIcon.bind(this), false);
-        }
-        window.addEventListener('3Dscroll', this.scroll.bind(this), false);
-    };
+        imageCanvas.JP.listen('tap/click', this.$clickIcon, false);
+        window.addEventListener('3Dscroll', this.$scroll, false);
+    },
 
-    this.clickIcon = function (event) {
+    clickIcon: function (event) {
         event.stopPropagation();
         this.select();
-    };
+    },
 
-    this.select = function () {
+    select: function () {
         if (!this.isSelected()) {
             this.element.classList.add('selected');
-            setTimeout(function () {
+            this.element.JP.listenOnce(Modernizr.transitionEnd, function () {
                 if (this.isSelected()) {
                     var position = this.getOverlayPosition();
-
                     this.overlay.setPosition(position);
                     this.overlay.show();
                 }
-             }.bind(this), 500);
+            }.bind(this));
 
             if (this.delegate && typeof this.delegate.projectDidSelect === 'function') {
                 this.delegate.projectDidSelect(this);
             }
         }
-    };
+    },
 
-    this.deselect = function () {
+    deselect: function () {
         if (this.isSelected()) {
             this.element.classList.remove('selected');
-            setTimeout(this.overlay.$('hide'), 100);
+            setTimeout(this.overlay.$hide, 100);
             if (this.delegate && typeof this.delegate.projectDidDeselect) {
                 this.delegate.projectDidDeselect(this);
             }
         }
-    };
+    },
 
-    this.isSelected = function () {
+    isSelected: function () {
         return this.element.classList.contains('selected');
-    };
+    },
 
-    this.getImagePosition = function () {
+    getImagePosition: function () {
         var image = this.element.querySelector('.project-image');
-        return Utils.convertPointFromNodeToPage(image).x + 350;
-    };
+        var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+        return Utils.convertPointFromNodeToPage(image).x - scrollLeft + 350;
+    },
 
-    this.getOverlayPosition = function () {
+    getOverlayPosition: function () {
         return Math.min(this.getImagePosition(), window.innerWidth - 350);
-    };
+    },
 
-    this.scroll = function (event) {
+    scroll: function (event) {
         if (this.overlay.visible) {
             var position = this.getOverlayPosition();
             this.overlay.setPosition(position);
@@ -97,18 +92,18 @@ Project.prototype = new (function () {
                 this.deselect();
             }
         }
-    };
+    },
 
-    this.blur = function () {
+    blur: function () {
         // var canvas = this.element.querySelector('.project-image');
         // var context = canvas.getContext('2d');
         // context.globalAlpha = 0.1;
         // context.globalCompositeOperation = 'source-atop';
         // context.fillStyle = '#FFF';
         // this.whitenAnimation(canvas, context, 10);
-    };
+    },
 
-    this.whitenAnimation = function (canvas, context, times) {
+    whitenAnimation: function (canvas, context, times) {
         // if (times == 0) {
         //     // revert back to default global canvas operations
         //     context.globalAlpha = 1.0;
@@ -117,14 +112,14 @@ Project.prototype = new (function () {
         //     context.fillRect(0, 0, 300, 300);
         //     setTimeout(function () { this.whitenAnimation(canvas, context, times - 1); }.bind(this), 30);
         // }
-    };
+    },
 
-    this.unblur = function () {
+    unblur: function () {
         // var width = 300, height = 300;
         // var canvas = this.element.querySelector('.project-image');
         // var context = canvas.getContext('2d');
         // context.clearRect(0, 0, width, height);
         // context.drawImage(canvas.originalImage, 0, 0, width, height);
-    };
+    }
 
-})();
+};

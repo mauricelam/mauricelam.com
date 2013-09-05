@@ -1,0 +1,8 @@
+{
+    "id":"docktoright",
+    "name":"DockToRight",
+    "types":{
+        "github":"https://github.com/mauricelam/DockToRight"
+    },
+    "description":"DockToRight is a custom stylesheet that makes the Chrome developer tools usable when docked to the right. It turns horizontal split panels into vertical ones, and slims down elements whenever possible, so you can actually use the developer tools in vertical mode. "
+}

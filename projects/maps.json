@@ -3,7 +3,8 @@
     "name":"ScrollMaps",
     "types":{
     	"chromeextension":"https://chrome.google.com/webstore/detail/jifommjndpnefcfplgnbhabocomgdjjg",
-    	"safariextension":"https://sites.google.com/site/scrollmaps/download"
+    	"safariextension":"https://sites.google.com/site/scrollmaps/download",
+        "github":"https://github.com/mauricelam/ScrollMaps"
     },
     "description":"ScrollMaps is a Chrome and Safari extension to let you use the scroll wheel / scrolling gesture to scroll in Google Maps rather than to zoom. It works with maps.google.com, iframed Google maps as well as sites using the Google Maps API. "
 }

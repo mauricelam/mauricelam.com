@@ -4,7 +4,7 @@
     background-color: rgba(0,0,0,0.8);
     z-index: 999999;
     padding: 10px;
-    position: absolute;
+    position: fixed;
     left: 54%;
     bottom: 180px;
     font-family: Helvetica;

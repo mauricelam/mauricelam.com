@@ -1,20 +1,14 @@
-//=> Project Modernizr TapGestureRecognizer
+//=> JP TapEvent Project Modernizr
 
-var ProjectController = function () { this.init.apply(this, arguments); };
+var ProjectController = function () { JP.object(this, arguments); };
 
-ProjectController.prototype = new (function () {
+ProjectController.prototype = {
 
-    this.init = function () {
-        this.$('clickTable');
-
+    init: function () {
         this.projects = [];
         this.selectedProject = null;
 
-        if (Modernizr.touch) {
-            document.addEventListener('tap', this.$clickTable, false);
-        } else {
-            document.addEventListener('click', this.$clickTable, false);
-        }
+        document.JP.listen('tap/click', this.$clickTable);
         window.addEventListener('resize', this.windowResized.bind(this), false);
 
         var projectElements = document.querySelectorAll('.project');
@@ -24,26 +18,26 @@ ProjectController.prototype = new (function () {
             newProject.delegate = this;
             this.projects.push(newProject);
         }
-    };
+    },
 
-    this.deselectProject = function () {
+    deselectProject: function () {
         if (this.selectedProject) {
             this.selectedProject.deselect();
         }
-    };
+    },
 
-    this.projectDidDeselect = function (project) {
+    projectDidDeselect: function (project) {
         document.getElementById('tabletop').classList.remove('blurred');
         this.selectedProject = null;
 
-        for (var i = 0, count = this.projects.length; i < count; i++) {
-            if (this.projects[i] != this.selectedProject) {
-                this.projects[i].unblur();
+        this.projects.forEach(function (otherProject) {
+            if (otherProject != project) {
+                otherProject.unblur();
             }
-        }
-    };
+        });
+    },
 
-    this.projectDidSelect = function (project) {
+    projectDidSelect: function (project) {
         this.deselectProject();
         var position = project.element.offsetLeft - window.innerWidth/2 + 250;
         scrollTableTo(position, true);
@@ -51,23 +45,23 @@ ProjectController.prototype = new (function () {
         document.getElementById('tabletop').classList.add('blurred');
         this.selectedProject = project;
 
-        for (var i = 0, count = this.projects.length; i < count; i++) {
-            if (this.projects[i] != project) {
-                this.projects[i].blur();
+        this.projects.forEach(function (otherProject) {
+            if (otherProject != project) {
+                otherProject.blur();
             }
-        }
-    };
+        });
+    },
 
-    this.windowResized = function (event) {
+    windowResized: function (event) {
         if (!this.selectedProject) {
             return;
         }
-        var position = project.element.offsetLeft - window.innerWidth/2 + 250;
+        var position = this.selectedProject.element.offsetLeft - window.innerWidth/2 + 250;
         scrollTableTo(position, false);
-    };
+    },
 
-    this.clickTable = function (event) {
+    clickTable: function (event) {
         this.deselectProject();
-    };
+    }
 
-})();
+};

@@ -1,102 +1,102 @@
-//=> Utils LowPassFilter
+//=> JP Utils LowPassFilter Modernizr
 
-var ScrollRecognizer = function () { this.init.apply(this, arguments); };
+var ScrollRecognizer = function () { JP.object(this, arguments); };
 
-ScrollRecognizer.prototype = new (function () {
+ScrollRecognizer.prototype = {
 
-    var FRICTION_FACTOR = 0.05;
+    FRICTION_FACTOR: 0.05,
+    velocityMeter: new LowPassFilter(),
+    steppingTimer: 0,
+    deceleration: 0,
+    lastEvent: null,
+    startEvent: null,
+    hasHorizontalScroll: false,
+    hasTouch: false,
 
-    var velocityMeter = new LowPassFilter();
-    var steppingTimer = 0;
-    var deceleration = 0;
-    var lastEvent = null;
-    var startEvent = null;
-    var hasHorizontalScroll = false;
-
-    this.init = function (target, action) {
-        this.$('handleWheel', 'touchesBegan', 'touchesMoved', 'touchesEnded', 'touchesEndedInCapturingPhase');
-
-        document.addEventListener('mousewheel', this.$handleWheel, false); // WebKit
-        document.addEventListener('DOMMouseScroll', this.$handleWheel, false); // Firefox
-
-        document.addEventListener('touchstart', this.$touchesBegan, false);
-        document.addEventListener('touchmove', this.$touchesMoved, false);
-        document.addEventListener('touchend', this.$touchesEnded, false);
+    init: function (callback, jumpCallback) {
+        document.addEventListener('touchstart', this.$touchesBegan);
+        document.addEventListener('touchmove', this.$touchesMoved);
+        document.addEventListener('touchend', this.$touchesEnded);
 
         document.addEventListener('touchend', this.$touchesEndedInCapturingPhase, true);
+        document.addEventListener('mousewheel', this.$handleWheel);
+        document.addEventListener('DOMMouseScroll', this.$handleWheel);
+        document.addEventListener('scroll', this.$handleScroll);
 
-        this.target = target;
-        this.action = action;
-    };
+        this.callback = callback;
+        this.jumpCallback = jumpCallback;
+    },
 
-    this.handleWheel = function (event) {
-        var wheelDelta = (event.wheelDelta) ? event.wheelDelta : event.detail * -40;
-        var horizontalWheelDelta = (event.wheelDeltaX) ? event.wheelDeltaX : (event.axis == 1) ? event.detail * -40 : 0;
-        if (horizontalWheelDelta !== 0 || hasHorizontalScroll) {
-            wheelDelta = horizontalWheelDelta;
-            hasHorizontalScroll = true;
+    handleWheel: function (event) {
+        var wheelDeltaY = (event.wheelDeltaY) ? event.wheelDeltaY : (event.axis === 2) ? event.detail * -40 : 0;
+        var wheelDeltaX = (event.wheelDeltaX) ? event.wheelDeltaX : (event.axis === 1) ? event.detail * -40 : 0;
+        this.hasHorizontalScroll = this.hasHorizontalScroll || wheelDeltaX !== 0;
+        if (!this.hasHorizontalScroll) {
+            event.stopPropagation();
+            event.preventDefault();
+            document.body.scrollLeft -= wheelDeltaY;
+            document.documentElement.scrollLeft -= wheelDeltaY;
         }
-        event.stopPropagation();
-        event.preventDefault();
-        var dx = wheelDelta / 4;
-        this.target[this.action](dx);
-    };
+        // Scroll horizontally if only vertical
+    },
 
-    var scrollDirection = null;
+    handleScroll: function (event) {
+        if (this.hasTouch) return; // Based on the fact the you must touch to scroll
+        this.jumpCallback(document.body.scrollLeft || document.documentElement.scrollLeft);
+    },
 
-    this.touchesBegan = function (event) {
-        if (startEvent === null) {
-            if (steppingTimer) {
-                clearInterval(steppingTimer);
-            }
-            lastEvent = startEvent = event;
+    scrollDirection: null,
+
+    touchesBegan: function (event) {
+        this.hasTouch = true;
+        if (this.startEvent === null) {
+            clearInterval(this.steppingTimer);
+            this.lastEvent = this.startEvent = event;
             scrollDirection = null;
         }
-    };
+    },
 
-    this.touchesMoved = function (event) {
-        if (scrollDirection == 'vertical') {
+    touchesMoved: function (event) {
+        if (scrollDirection === 'vertical') {
             return;
-        } else if (scrollDirection == 'horizontal') {
+        } else if (scrollDirection === 'horizontal') {
             event.preventDefault();
         }
 
-        if (Math.abs(Utils.getDeltaX(event, startEvent)) > 22) {
+        if (Math.abs(Utils.getDeltaX(event, this.startEvent)) > 22) {
             scrollDirection = 'horizontal';
-        } else if (Math.abs(Utils.getDeltaY(event, startEvent)) > 22) {
+        } else if (Math.abs(Utils.getDeltaY(event, this.startEvent)) > 22) {
             scrollDirection = 'vertical';
         }
 
-        var delta = Utils.getDeltaX(event, lastEvent);
-        this.target[this.action](delta);
-        if (lastEvent) {
-            velocityMeter.addData(delta / (event.timeStamp - lastEvent.timeStamp) * 25, event.timeStamp);
+        var delta = Utils.getDeltaX(event, this.lastEvent);
+        this.callback(delta);
+        if (this.lastEvent) {
+            this.velocityMeter.addData(delta / (event.timeStamp - this.lastEvent.timeStamp) * 25, event.timeStamp);
         }
-        lastEvent = event;
-    };
+        this.lastEvent = event;
+    },
 
-    this.touchesEnded = function (event) {
+    touchesEnded: function (event) {
         if (event.touches.length === 0) {
-            deceleration = velocityMeter.getData(event.timeStamp) * 1.5;
-            steppingTimer = window.setInterval(function () {
-                this.stepToCompletion();
-            }.bind(this), 20); // ~60 fps
+            deceleration = this.velocityMeter.getData(event.timeStamp) * 1.5;
+            this.steppingTimer = window.setInterval(this.$stepToCompletion, 20); // ~60 fps
         }
-    };
+    },
 
-    this.touchesEndedInCapturingPhase = function (event) {
+    touchesEndedInCapturingPhase: function (event) {
         if (event.touches.length === 0) {
-            lastEvent = startEvent = null;
+            this.lastEvent = this.startEvent = null;
         }
-    };
+    },
 
-    this.stepToCompletion = function () {
-        this.target[this.action](deceleration);
-        deceleration *= (1 - FRICTION_FACTOR);
+    stepToCompletion: function () {
+        this.callback(deceleration);
+        deceleration *= (1 - this.FRICTION_FACTOR);
         if (Math.abs(deceleration) < 3) {
-            clearInterval(steppingTimer);
-            velocityMeter.reset();
+            clearInterval(this.steppingTimer);
+            this.velocityMeter.reset();
         }
-    };
+    }
 
-})();
+};

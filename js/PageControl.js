@@ -1,19 +1,24 @@
-var PageControl = function () { this.init.apply(this, arguments); };
+//=> JP
 
-PageControl.prototype = new (function () {
+var PageControl = function () { JP.object(this, arguments); };
 
-    this.init = function () {
+PageControl.prototype = {
+
+    element: null,
+    _numberOfPages: 0,
+
+    init: function () {
         this.element = document.createElement('div');
         this.element.classList.add('pagecontrol');
-    };
+    },
 
-    this.setNumberOfPages = function (num) {
+    setNumberOfPages: function (num) {
         this._numberOfPages = num;
         this.element.innerHTML = '';
         for (var i = 0; i < num; i++) {
             var dot = document.createElement('span');
             this.element.appendChild(dot);
         }
-    };
+    }
 
-})();
+};

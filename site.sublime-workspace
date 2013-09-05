@@ -1,0 +1,2022 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pro",
+				"project"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"width",
+				"widthExtender"
+			],
+			[
+				"start",
+				"start_index"
+			],
+			[
+				"re_month",
+				"re_monthabbr"
+			],
+			[
+				"cl",
+				"calendar"
+			],
+			[
+				"link",
+				"linkTo"
+			],
+			[
+				"hours_",
+				"hours_list"
+			],
+			[
+				"typ",
+				"TYPE_IFRAME"
+			],
+			[
+				"bod",
+				"bodyScrolls"
+			],
+			[
+				"doc",
+				"documentElement"
+			],
+			[
+				"pare",
+				"parentNode"
+			],
+			[
+				"ele",
+				"element"
+			],
+			[
+				"ssDe",
+				"ssDetailAdminController"
+			],
+			[
+				"pop",
+				"popPage"
+			],
+			[
+				"repor",
+				"reportHTML"
+			],
+			[
+				"repo",
+				"reportHTML"
+			],
+			[
+				"clo",
+				"closeReport"
+			],
+			[
+				"import",
+				"important"
+			],
+			[
+				"to",
+				"toLowerCase"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"ui-",
+				"ui-autocomplete"
+			],
+			[
+				"box-",
+				"box-sizing"
+			],
+			[
+				"res",
+				"resetReport"
+			],
+			[
+				"color",
+				"colorPick"
+			],
+			[
+				"shadow",
+				"shadowDepth"
+			],
+			[
+				"light",
+				"lightMatrices"
+			],
+			[
+				"lig",
+				"lightMatrices"
+			],
+			[
+				"orin",
+				"originalStreetViewCanvas"
+			],
+			[
+				"return",
+				"returns	@returns"
+			],
+			[
+				"shader",
+				"shaderTextures"
+			],
+			[
+				"unif",
+				"uniforms"
+			],
+			[
+				"addIM",
+				"addImageToLibrary"
+			],
+			[
+				"add",
+				"addImageToLibrary"
+			],
+			[
+				"prev",
+				"preventDefault"
+			],
+			[
+				"drag",
+				"dragAndDrop"
+			],
+			[
+				"data",
+				"dataTransfer"
+			],
+			[
+				"even",
+				"eventTypes"
+			],
+			[
+				"eve",
+				"eventTypes"
+			],
+			[
+				"types",
+				"acceptTypes"
+			],
+			[
+				"dra",
+				"dragAndDrop"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"shad",
+				"shadowTexture"
+			],
+			[
+				"uSh",
+				"uShadowDepth"
+			],
+			[
+				"shado",
+				"shadowDepth"
+			],
+			[
+				"sam",
+				"sampler"
+			],
+			[
+				"tex",
+				"texture2D"
+			],
+			[
+				"samp",
+				"sampler2D"
+			],
+			[
+				"textu",
+				"texture2D"
+			],
+			[
+				"text",
+				"texture2D"
+			],
+			[
+				"position",
+				"positionAttribute"
+			],
+			[
+				"down",
+				"downsample128"
+			],
+			[
+				"downsam",
+				"downsample64"
+			],
+			[
+				"vertex",
+				"vertexBuffer"
+			],
+			[
+				"sc",
+				"scenario"
+			],
+			[
+				"anim",
+				"animationTime"
+			],
+			[
+				"forma",
+				"formatHours"
+			],
+			[
+				"space",
+				"spacelist-item"
+			],
+			[
+				"suppo",
+				"supportDerivative"
+			],
+			[
+				"lightProj",
+				"lightProjPos"
+			],
+			[
+				"request",
+				"requestAnimFrame"
+			],
+			[
+				"lightDe",
+				"lightDeviceNormal"
+			],
+			[
+				"ver",
+				"vertexNormalAttribute"
+			],
+			[
+				"uni",
+				"uniform1i"
+			],
+			[
+				"TEX",
+				"TEXTURE_2D"
+			],
+			[
+				"draw",
+				"drawShadow"
+			],
+			[
+				"aVer",
+				"aVertexPosition"
+			],
+			[
+				"verte",
+				"vertexPositionAttribute"
+			],
+			[
+				"li",
+				"lightVector"
+			],
+			[
+				"bind",
+				"bindFramebuffer"
+			],
+			[
+				"offse",
+				"offsetParent"
+			],
+			[
+				"smo",
+				"smoothnessSlider"
+			],
+			[
+				"per",
+				"performance"
+			],
+			[
+				"perNo",
+				"perfNowNames"
+			],
+			[
+				"bumpMa",
+				"bumpMapDrop"
+			],
+			[
+				"texture",
+				"textureDrop"
+			],
+			[
+				"query",
+				"querySelector"
+			],
+			[
+				"addE",
+				"addExternalTexture"
+			],
+			[
+				"scroll",
+				"scrollTop"
+			],
+			[
+				"ini",
+				"initGPlus"
+			],
+			[
+				"scro",
+				"scrollListener"
+			],
+			[
+				"bump",
+				"bumpMapPicker"
+			],
+			[
+				"pano",
+				"panoRotation"
+			],
+			[
+				"addEx",
+				"addExternalBumpMap"
+			],
+			[
+				"bumpM",
+				"bumpMap"
+			],
+			[
+				"table",
+				"tableshader"
+			],
+			[
+				"con",
+				"context"
+			],
+			[
+				"bumpMap",
+				"bumpMapDepth"
+			],
+			[
+				"uBum",
+				"uBumpMapDepth"
+			],
+			[
+				"the",
+				"thetaPhi"
+			],
+			[
+				"refl",
+				"reflectDirection"
+			],
+			[
+				"uTex",
+				"uTextureAlpha"
+			],
+			[
+				"quer",
+				"querySelector"
+			],
+			[
+				"sm",
+				"smoothness"
+			],
+			[
+				"shin",
+				"shininessSlider"
+			],
+			[
+				"que",
+				"querySelector"
+			],
+			[
+				"nor",
+				"normalize"
+			],
+			[
+				"te",
+				"textureCoord"
+			],
+			[
+				"Tex",
+				"TEXTURE_2D"
+			],
+			[
+				"ab",
+				"absNormalY"
+			],
+			[
+				"aV",
+				"aVertexPosition"
+			],
+			[
+				"ro",
+				"rotationMatrix"
+			],
+			[
+				"ve",
+				"vVertexPosition"
+			],
+			[
+				"open",
+				"openCalled"
+			],
+			[
+				"info",
+				"infoDisplayed"
+			],
+			[
+				"passi",
+				"passiveCalled"
+			],
+			[
+				"click",
+				"clickedGMarker"
+			],
+			[
+				"cli",
+				"clickedMarker"
+			],
+			[
+				"bro",
+				"broadcastcalled"
+			],
+			[
+				"remov",
+				"removeCalled"
+			],
+			[
+				"remove",
+				"removeMarkers"
+			],
+			[
+				"wac",
+				"watchFunc"
+			],
+			[
+				"remo",
+				"removeCalled"
+			],
+			[
+				"random",
+				"randomMarkers"
+			],
+			[
+				"ran",
+				"randomMarkers"
+			],
+			[
+				"watch",
+				"watchFunc"
+			],
+			[
+				"lat",
+				"latlng"
+			],
+			[
+				"fak",
+				"fakeLocationChange"
+			],
+			[
+				"fake",
+				"fakeLocation"
+			],
+			[
+				"fakeLoca",
+				"fakeLocation"
+			],
+			[
+				"fakeLo",
+				"fakeLocation2"
+			],
+			[
+				"pos",
+				"positionData"
+			],
+			[
+				"fal",
+				"fakeLocation"
+			],
+			[
+				"test",
+				"testid"
+			],
+			[
+				"wa",
+				"watches"
+			],
+			[
+				"Chrom",
+				"ChromeCanary"
+			],
+			[
+				"confi",
+				"configFile"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/JSBuild.sublime-build",
+	"command_palette":
+	{
+		"height": 27.0,
+		"selected_items":
+		[
+			[
+				"markdown",
+				"Set Syntax: Markdown"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"user",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"mark",
+				"Mark And Move Window: Next"
+			],
+			[
+				"open",
+				"Finder: Open here"
+			],
+			[
+				"color ",
+				"Color Picker: Insert Color"
+			],
+			[
+				"package up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"wrap",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"glsl",
+				"Set Syntax: GLSL"
+			],
+			[
+				"mini",
+				"MinifyJSON"
+			],
+			[
+				"aaa",
+				"z:AAAPackageDev: New Raw Snippet"
+			],
+			[
+				"pick",
+				"Color picker"
+			],
+			[
+				"color",
+				"Color picker"
+			],
+			[
+				"packages",
+				"Preferences: Browse Packages"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"matlab",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"settings",
+				"Preferences: Settings - User"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"lint",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"upgrade",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"lint error",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"linter",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"lint ",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"brows",
+				"Preferences: Browse Packages"
+			],
+			[
+				"codein",
+				"SublimeCodeIntel: Disable Plugin"
+			],
+			[
+				"codeint",
+				"SublimeCodeIntel: Disable Plugin"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"matl",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"ope",
+				"Finder: Open here"
+			],
+			[
+				"javascrip",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"javascr",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"git pu",
+				"Git: Pull"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"finder",
+				"Finder: Open here"
+			],
+			[
+				"jav",
+				"Set Syntax: Java"
+			],
+			[
+				"repl",
+				"SublimeREPL: Ruby"
+			],
+			[
+				"svn comm",
+				"SVN: Commit…"
+			],
+			[
+				"svn add",
+				"SVN: (File) Add"
+			],
+			[
+				"svn stat",
+				"SVN: Status"
+			],
+			[
+				"snippet p",
+				"Snippet: <?php $this->… ?>"
+			],
+			[
+				"git stash",
+				"Git: Stash Changes"
+			],
+			[
+				"git pul",
+				"Git: Pull"
+			],
+			[
+				"git p",
+				"Git: Pull"
+			],
+			[
+				"git commi",
+				"Git: Commit"
+			],
+			[
+				"git ad",
+				"Git: Add Current File"
+			],
+			[
+				"git s",
+				"Git: Stash Changes"
+			],
+			[
+				"git statu",
+				"Git: Status"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git ",
+				"Git: Commit"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"repl p",
+				"SublimeREPL: Python"
+			],
+			[
+				"repl py",
+				"SublimeREPL: Python"
+			],
+			[
+				"browse",
+				"Preferences: Browse Packages"
+			],
+			[
+				"keybin",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"rot",
+				"Rot13 Selection"
+			],
+			[
+				"settings user",
+				"Preferences: Settings - User"
+			],
+			[
+				"user ",
+				"Preferences: Settings - User"
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"git ini",
+				"Git: Init"
+			],
+			[
+				"bro",
+				"Preferences: Browse Packages"
+			],
+			[
+				"browser",
+				"SFTP: Browse Server…"
+			],
+			[
+				"gist",
+				"Gist: Create Public Gist"
+			],
+			[
+				"diff",
+				"FileDiffs: Menu"
+			],
+			[
+				"diff ",
+				"FileDiffs: Menu"
+			],
+			[
+				"default",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"xiki",
+				"Preferences: SublimeXiki Settings – User"
+			],
+			[
+				"k",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"terminal",
+				"Preferences: Terminal Key Bindings – Default"
+			],
+			[
+				"termina",
+				"Preferences: Terminal Settings – Default"
+			],
+			[
+				"termin",
+				"Preferences: Terminal Key Bindings – Default"
+			],
+			[
+				"defaul",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"show",
+				"Git: Show Current File"
+			],
+			[
+				"git sta",
+				"Git: Stash Apply"
+			],
+			[
+				"chea",
+				"CheatSheet"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"prefix",
+				"Preferences: Prefixr Key Bindings – User"
+			],
+			[
+				"prefixr",
+				"Preferences: Prefixr Key Bindings – User"
+			],
+			[
+				"prefixe",
+				"Preferences: Prefixr Key Bindings – Default"
+			],
+			[
+				"git qc",
+				"Git: Quick Commit"
+			],
+			[
+				"git qui",
+				"Git: Quick Commit"
+			],
+			[
+				"git quic",
+				"Git: Quick Commit"
+			],
+			[
+				"psuh",
+				"Git: Push Current Branch"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"gist ",
+				"Gist: Create Public Gist"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"snippet cl",
+				"Snippet: class"
+			],
+			[
+				"endline",
+				"EndLine"
+			],
+			[
+				"end",
+				"EndLine"
+			],
+			[
+				"line",
+				"EndLine"
+			],
+			[
+				"enline",
+				"EndLine"
+			],
+			[
+				"endlien",
+				"SublimeCodeIntel: Disable Live Autocompletion"
+			],
+			[
+				"endlin",
+				"EndLine"
+			],
+			[
+				"endl",
+				"EndLine"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"endli",
+				"EndLine"
+			],
+			[
+				"dis",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"jque",
+				"Set Syntax: jQuery (JavaScript)"
+			],
+			[
+				"control",
+				"Package Control: Add Repository"
+			],
+			[
+				"build",
+				"Build: Build"
+			],
+			[
+				"svn com",
+				"SVN: Commit…"
+			],
+			[
+				"svn ",
+				"SVN: Commit…"
+			],
+			[
+				"svn commi",
+				"SVN: Commit…"
+			],
+			[
+				"svn update",
+				"SVN: Update"
+			],
+			[
+				"min",
+				"MinifyJSON"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"mii",
+				"MinifyJSON"
+			],
+			[
+				"miin",
+				"MinifyJSON"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"tag",
+				"Tag: Auto-Format Tags on Document"
+			],
+			[
+				"html p",
+				"HTMLPrettify: Prettify"
+			],
+			[
+				"disa",
+				"SublimeLinter: Disable Linting"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 154.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/mauricelam/Desktop/site_project/css/TypeLabel.css",
+		"/Users/mauricelam/Desktop/site_project/js/ScrollRecognizer.js",
+		"/Users/mauricelam/Desktop/site_project/css/Overlay.css",
+		"/Users/mauricelam/Desktop/site_project/site.html",
+		"/Users/mauricelam/Desktop/site_project/css/site.css",
+		"/Users/mauricelam/Desktop/site_project/js/site.js",
+		"/Users/mauricelam/Desktop/site_project/js/Overlay.js",
+		"/Users/mauricelam/Desktop/site_project/js/ProjectController.js",
+		"/Users/mauricelam/Desktop/site_project/js/Project.js",
+		"/Users/mauricelam/Desktop/site_project/site.sublime-workspace",
+		"/Users/mauricelam/Desktop/site_project/site.sublime-project",
+		"/Users/mauricelam/Desktop/site_project/main.py",
+		"/Users/mauricelam/Desktop/hoursparser/hoursparser.py",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/spot/serializers.py",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/spot/views.py",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/spot/urls.py",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/spot/models.py",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/space_avengers/settings.py",
+		"/Users/mauricelam/Downloads/HW4_description.md",
+		"/Users/mauricelam/Downloads/HW4_description.txt",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/scrollmaps/ScrollableMap.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/scrollmaps/Shim.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/scrollmaps/inject_frame.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/scrollmaps/global_inject.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/scrollmaps/pref.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/chromemaps/inject_frame.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/chromemaps/global_inject.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/chromemaps/ScrollableMap.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/chromemaps/inject_content.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/maps/scrollmaps/inject.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/directives/detail.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/index.html",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/directives/pager.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/styles/_detail.scss",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/styles/main.scss",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/views/detail.html",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/extensions/scope.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/directives/pageController.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/views/report.html",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/app.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/controllers/main.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/styles/_branding.scss",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/views/main.html",
+		"/Users/mauricelam/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/directives/filter.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/assets/jqueryui-theme/jquery-ui.css",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/views/filter.html",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/styles/_filter.scss",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/spatio.sublime-project",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/components/angular-ui/grunt.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/coverage/.gitignore",
+		"/Users/mauricelam/Desktop/Maurice/scripts/teapot/index.html",
+		"/Users/mauricelam/Desktop/Maurice/scripts/teapot/main.js",
+		"/Users/mauricelam/Desktop/Maurice/scripts/c_testground/printf.c",
+		"/Users/mauricelam/Desktop/teapot/streetview.js",
+		"/Users/mauricelam/Desktop/teapot/include/sylvester/sylvester.js",
+		"/Users/mauricelam/Desktop/teapot/main.js",
+		"/Users/mauricelam/Desktop/teapot/pipeline.js",
+		"/Users/mauricelam/Desktop/teapot/teapot.js",
+		"/Users/mauricelam/Desktop/teapot/panoshader.frag",
+		"/Users/mauricelam/Desktop/teapot/index.html",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/directives/markers.js",
+		"/Users/mauricelam/Desktop/teapot/style.css",
+		"/Users/mauricelam/Desktop/teapot/potshader.frag",
+		"/Users/mauricelam/Desktop/teapot/utils.js",
+		"/Users/mauricelam/Desktop/teapot/README",
+		"/Users/mauricelam/Desktop/teapot/objparser.js",
+		"/Users/mauricelam/Desktop/teapot/modal.js",
+		"/Users/mauricelam/Desktop/teapot/sphere.js",
+		"/Users/mauricelam/Desktop/teapot/include/PanoLoader.js",
+		"/Users/mauricelam/Desktop/teapot/include/webgl-utils.js",
+		"/Users/mauricelam/Desktop/teapot/shadowshader.vert",
+		"/Users/mauricelam/Desktop/teapot/shadowshader.frag",
+		"/Users/mauricelam/Desktop/teapot/potshader.vert",
+		"/Users/mauricelam/Downloads/proj1/project_2.m",
+		"/Users/mauricelam/Desktop/teapot/Filter.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/services/geo.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/dist/index.html",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/e2e/main.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/e2e/e2e.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/e2e/detail.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/e2e/notes",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/vendor/angular-scenario.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/assets/uiuc_testdata.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/unit/ssdetail.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/unit/formattime.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/unit/ssdetailadmin.js",
+		"/Users/mauricelam/Desktop/teapot/include/farbtastic/farbtastic.js",
+		"/Users/mauricelam/Downloads/proj1/teams.txt",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/unit/main.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/Gruntfile.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/assets/uiuc_testdata.json",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/.sass-cache/5fbe4cfe9d0459e1318f45af3487198e5d89946c/detail.scssc",
+		"/Users/mauricelam/Desktop/teapot/trash/table.js",
+		"/Users/mauricelam/Desktop/teapot/table.js",
+		"/Users/mauricelam/Desktop/teapot/tableshader.frag",
+		"/Users/mauricelam/Desktop/teapot/models/plane.obj",
+		"/Users/mauricelam/Desktop/teapot/models/sphere copy.obj",
+		"/Users/mauricelam/Desktop/teapot/panoshader.vert",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/unit/app.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/unit/markers.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/unit/geo.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/test/unit/markersfilter.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/testacular.unit.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/vendor/angular.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/components/angular/angular.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/testacular.e2e.js",
+		"/Users/mauricelam/Desktop/teapot/include/dragdealer/dragdealer.css",
+		"/Users/mauricelam/Desktop/teapot/include/dragdealer/dragdealer.js",
+		"/Users/mauricelam/Desktop/teapot/include/farbtastic/farbtastic.css",
+		"/Users/mauricelam/Desktop/teapot/include/colorpicker/colorPicker_src.js",
+		"/Users/mauricelam/Desktop/teapot/include/FastBlur.js",
+		"/Users/mauricelam/Desktop/teapot/include/GSVPano.js",
+		"/Users/mauricelam/Desktop/teapot/include/glUtils.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/components/angular-ui/test/lib/bootstrap/bootstrap-modal.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/node_modules/generator-angular/app/templates/bootstrap.css",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/assets/ui-bootstrap-0.1.0.min.js",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/views/header.html",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/styles/compass_twitter_bootstrap/_variables.scss",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/dist/styles/main.css",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/compass.rb",
+		"/Users/mauricelam/Desktop/UIUC/CS/429/space-avengers/web/app/scripts/directives/header.js",
+		"/Users/mauricelam/Desktop/teapot/fshader.frag",
+		"/Users/mauricelam/Desktop/teapot/vshader.vert",
+		"/Users/mauricelam/Desktop/teapot/panofragshader.frag",
+		"/Users/mauricelam/Desktop/teapot/plane.obj",
+		"/Users/mauricelam/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/mauricelam/Documents/MATLAB/hw5_14.m"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			":hover",
+			"false",
+			"touch:",
+			"thisProject",
+			"Project",
+			"project",
+			"callback",
+			"scrollre",
+			"3Dscroll",
+			"WIDTH",
+			"width",
+			"Width",
+			"WIDTH",
+			"Width",
+			"WIDTH",
+			"day",
+			"start",
+			"Hours",
+			"populateTime",
+			"resolveLinks",
+			"hasExactDate",
+			"parseTime",
+			"start",
+			"entries",
+			"entry",
+			"search",
+			"views",
+			"library",
+			"Library",
+			"LibraryList",
+			"hours",
+			"console",
+			"con",
+			"new ScrollableMap",
+			"showControls",
+			"prepend",
+			"listenBodyScrolls",
+			"updateBodyScrolls",
+			"includeElement",
+			"ngInclude",
+			"h1",
+			"this._pageStack",
+			"element",
+			"pager",
+			"ssDetail",
+			"_pageStack",
+			"safeApply",
+			"Packages",
+			"command",
+			"args",
+			"carousel",
+			"admin-field",
+			"searchTerm",
+			"autocomplete",
+			"span",
+			"control-group",
+			"div",
+			"span2",
+			"alignright",
+			"span",
+			"pull-right",
+			"p>",
+			"p",
+			"div",
+			"supportDerivative",
+			"glUtils",
+			"zeroVector",
+			"uniforms",
+			"pl.setUniforms",
+			"yawPitch",
+			"pitchYaw",
+			"pitch",
+			"yaw",
+			"uSampler",
+			"sSample",
+			"pl.setTextures",
+			"i",
+			"pl.translate",
+			"pl.scale",
+			"scale",
+			"v.elements",
+			"ensure4x4",
+			",",
+			":",
+			"gmCoords",
+			"textureAlpha",
+			"texture",
+			"reflectionBlur",
+			"updateTextures",
+			"color",
+			"texture",
+			"smoothness",
+			"\n        ",
+			"shadowed",
+			"illuminated",
+			"CLAMP",
+			"REPEAT",
+			"highp",
+			"uSampler",
+			"shadowTexture",
+			"animateTeapot",
+			"teapotRotation",
+			"modelRotation",
+			"teapotRotation",
+			"lightPMatrix",
+			"teapotRotation",
+			"animateTeapot",
+			"supportDerivative",
+			"textures",
+			"Textures",
+			"textures",
+			"fps",
+			"panoRotation",
+			"controls.shininess",
+			"shadowDepth",
+			"bumpMapDepth",
+			"textureAlpha",
+			"colorpick",
+			"colorPick",
+			"colorpick",
+			"colorPick",
+			"smoothnessSlider",
+			"shininessSlider",
+			"make",
+			"glUtils",
+			"v.elements",
+			"elements",
+			"bgTextureCoordBuffer"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"250",
+			"\"id\": $1",
+			"\"Address\"",
+			"",
+			"\"",
+			"%20",
+			"$0\\n",
+			"\\0\\n",
+			"",
+			"\"",
+			"",
+			"&",
+			"{$1},",
+			"{$0},",
+			",",
+			"EventsManager.",
+			"PrefManager.",
+			"Discover.",
+			"",
+			"'$1'",
+			"NotifyMap.",
+			"\"$1\", ",
+			"$0 ",
+			"",
+			"0",
+			"1",
+			"$1",
+			"$0 ",
+			"$0\\n",
+			"$1\\n",
+			"$1",
+			"\\1",
+			"\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'\n    PRINT *, 'Hello world'",
+			"\\1\\\\n",
+			"#-webkit-web-inspector.dock-to-right:not(.detached)",
+			"&gt;",
+			"&lt;",
+			"",
+			"\n	b\n	c\n	d\n	e",
+			"	a\n	b\n	c\n	d\n	e",
+			"",
+			" 2",
+			"2",
+			"",
+			"10",
+			"20",
+			"30",
+			"40",
+			"20",
+			"$0\\n",
+			"\\1:",
+			":",
+			"\\\\st{\\1}",
+			"\\\\textbf{$0}",
+			"\\\\textbf{$$}",
+			"\\textbf{$$}",
+			"",
+			"[\\1],",
+			"\\1,",
+			"",
+			"[$&],",
+			"[$],",
+			"[\\$],",
+			"\\1,",
+			"[\\1],",
+			"\\1,",
+			"[\\1]",
+			"[\\0]",
+			"\\1,",
+			"map",
+			"| \"\\1\" { \\2 }",
+			"\\1",
+			"60"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 100.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"output.jslint_result_view":
+	{
+		"height": 100.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"typel",
+				"css/TypeLabel.css"
+			],
+			[
+				"overla",
+				"css/Overlay.css"
+			],
+			[
+				"site.css",
+				"css/site.css"
+			],
+			[
+				"html",
+				"site.html"
+			],
+			[
+				"projec",
+				"js/Project.js"
+			],
+			[
+				"projectcon",
+				"js/ProjectController.js"
+			],
+			[
+				"over",
+				"js/Overlay.js"
+			],
+			[
+				"o",
+				"css/Overlay.css"
+			],
+			[
+				"scroll",
+				"js/ScrollRecognizer.js"
+			],
+			[
+				"site.js",
+				"js/site.js"
+			],
+			[
+				"main",
+				"main.py"
+			],
+			[
+				"glo",
+				"global_inject.js"
+			],
+			[
+				"scro",
+				"ScrollableMap.js"
+			],
+			[
+				"detail",
+				"scripts/directives/detail.js"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"detail.js",
+				"scripts/directives/detail.js"
+			],
+			[
+				"pagecon",
+				"scripts/directives/pageController.js"
+			],
+			[
+				"app",
+				"scripts/app.js"
+			],
+			[
+				"main.js",
+				"scripts/controllers/main.js"
+			],
+			[
+				"scope",
+				"scripts/extensions/scope.js"
+			],
+			[
+				"main.sc",
+				"styles/main.scss"
+			],
+			[
+				"detail.scss",
+				"styles/_detail.scss"
+			],
+			[
+				"scope.js",
+				"scripts/extensions/scope.js"
+			],
+			[
+				"repot",
+				"views/report.html"
+			],
+			[
+				"brand",
+				"styles/_branding.scss"
+			],
+			[
+				"main.scs",
+				"styles/main.scss"
+			],
+			[
+				"main.html",
+				"views/main.html"
+			],
+			[
+				"deta",
+				"views/detail.html"
+			],
+			[
+				"main.scss",
+				"styles/main.scss"
+			],
+			[
+				"app.",
+				"scripts/app.js"
+			],
+			[
+				"filter.js",
+				"scripts/directives/filter.js"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"jqu",
+				"assets/jqueryui-theme/jquery-ui.css"
+			],
+			[
+				"bran",
+				"styles/_branding.scss"
+			],
+			[
+				"detail.html",
+				"views/detail.html"
+			],
+			[
+				"main.",
+				"scripts/controllers/main.js"
+			],
+			[
+				"filter",
+				"views/filter.html"
+			],
+			[
+				"detai",
+				"views/detail.html"
+			],
+			[
+				"detail.scs",
+				"styles/_detail.scss"
+			],
+			[
+				"grunt",
+				"components/angular-ui/grunt.js"
+			],
+			[
+				".giti",
+				"coverage/.gitignore"
+			],
+			[
+				"pano",
+				"panoshader.frag"
+			],
+			[
+				"sylves",
+				"include/sylvester/sylvester.js"
+			],
+			[
+				"pip",
+				"pipeline.js"
+			],
+			[
+				"marker",
+				"app/scripts/directives/markers.js"
+			],
+			[
+				"pots",
+				"potshader.frag"
+			],
+			[
+				"pot",
+				"potshader.frag"
+			],
+			[
+				"stree",
+				"streetview.js"
+			],
+			[
+				"teapo",
+				"teapot.js"
+			],
+			[
+				"ut",
+				"utils.js"
+			],
+			[
+				"syl",
+				"include/sylvester/sylvester.js"
+			],
+			[
+				"stre",
+				"streetview.js"
+			],
+			[
+				"shad",
+				"shadowshader.vert"
+			],
+			[
+				"shadow",
+				"shadowshader.frag"
+			],
+			[
+				"potsh",
+				"potshader.vert"
+			],
+			[
+				"style",
+				"style.css"
+			],
+			[
+				"styl",
+				"style.css"
+			],
+			[
+				"frag",
+				"potshader.frag"
+			],
+			[
+				"tea",
+				"teapot.js"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"teapot",
+				"teapot.js"
+			],
+			[
+				"vert",
+				"potshader.vert"
+			],
+			[
+				"sa",
+				"shadowshader.frag"
+			],
+			[
+				"web",
+				"include/webgl-utils.js"
+			],
+			[
+				"index.",
+				"dist/index.html"
+			],
+			[
+				"geoj",
+				"app/scripts/services/geo.js"
+			],
+			[
+				"notes",
+				"test/e2e/notes"
+			],
+			[
+				"scena",
+				"test/vendor/angular-scenario.js"
+			],
+			[
+				"testdata",
+				"app/assets/uiuc_testdata.js"
+			],
+			[
+				"unitdetail",
+				"test/unit/ssdetail.js"
+			],
+			[
+				"ssdetailadmin",
+				"test/unit/ssdetailadmin.js"
+			],
+			[
+				"shado",
+				"shadowshader.frag"
+			],
+			[
+				"pipe",
+				"pipeline.js"
+			],
+			[
+				"shadows",
+				"shadowshader.frag"
+			],
+			[
+				"we",
+				"include/webgl-utils.js"
+			],
+			[
+				"sh",
+				"shadowshader.frag"
+			],
+			[
+				"utl",
+				"utils.js"
+			],
+			[
+				"po",
+				"potshader.frag"
+			],
+			[
+				"pi",
+				"pipeline.js"
+			],
+			[
+				"farb",
+				"include/farbtastic/farbtastic.js"
+			],
+			[
+				"",
+				"panoshader.frag"
+			],
+			[
+				"u",
+				"utils.js"
+			],
+			[
+				"uti",
+				"include/webgl-utils.js"
+			],
+			[
+				"e2",
+				"test/e2e/e2e.js"
+			],
+			[
+				"e2e",
+				"test/e2e/main.js"
+			],
+			[
+				"unitmain.js",
+				"test/unit/main.js"
+			],
+			[
+				"gruntfil",
+				"Gruntfile.js"
+			],
+			[
+				"testda",
+				"app/assets/uiuc_testdata.json"
+			],
+			[
+				"p",
+				"include/PanoLoader.js"
+			],
+			[
+				"panoload",
+				"include/PanoLoader.js"
+			],
+			[
+				"st",
+				"style.css"
+			],
+			[
+				"te",
+				"teapot.js"
+			],
+			[
+				"gl",
+				"include/webgl-utils.js"
+			],
+			[
+				"tablesh",
+				"tableshader.frag"
+			],
+			[
+				"parser",
+				"objparser.js"
+			],
+			[
+				"teap",
+				"teapot.js"
+			],
+			[
+				"fr",
+				"potshader.frag"
+			],
+			[
+				"ver",
+				"panoshader.vert"
+			],
+			[
+				"sty",
+				"style.css"
+			],
+			[
+				"t",
+				"teapot.js"
+			],
+			[
+				"index.h",
+				"dist/index.html"
+			],
+			[
+				"app.js",
+				"test/unit/app.js"
+			],
+			[
+				"mark",
+				"app/scripts/directives/markers.js"
+			],
+			[
+				"geo",
+				"app/scripts/services/geo.js"
+			],
+			[
+				"test",
+				"testacular.unit.js"
+			],
+			[
+				"testa",
+				"testacular.unit.js"
+			],
+			[
+				"gruntf",
+				"Gruntfile.js"
+			],
+			[
+				"lp",
+				"include/PanoLoader.js"
+			],
+			[
+				"utils",
+				"utils.js"
+			],
+			[
+				"drag",
+				"include/dragdealer/dragdealer.js"
+			],
+			[
+				"fa",
+				"include/farbtastic/farbtastic.js"
+			],
+			[
+				"f",
+				"include/farbtastic/farbtastic.css"
+			],
+			[
+				"far",
+				"include/farbtastic/farbtastic.js"
+			],
+			[
+				"colorpci",
+				"include/colorpicker/colorPicker_src.js"
+			],
+			[
+				"css",
+				"style.css"
+			],
+			[
+				"panolo",
+				"include/PanoLoader.js"
+			],
+			[
+				"gsv",
+				"include/GSVPano.js"
+			],
+			[
+				"pl",
+				"pipeline.js"
+			],
+			[
+				"glu",
+				"include/glUtils.js"
+			],
+			[
+				"glut",
+				"include/glUtils.js"
+			],
+			[
+				"fast",
+				"include/FastBlur.js"
+			],
+			[
+				"pa",
+				"panoshader.frag"
+			],
+			[
+				"bootstrap",
+				"app/components/angular-ui/test/lib/bootstrap/bootstrap-modal.js"
+			],
+			[
+				"detail.",
+				"app/scripts/directives/detail.js"
+			],
+			[
+				"main.hml",
+				"app/views/main.html"
+			],
+			[
+				"app.j",
+				"app/scripts/app.js"
+			],
+			[
+				"header.html",
+				"app/views/header.html"
+			],
+			[
+				"header",
+				"app/scripts/directives/header.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/mauricelam/Desktop/site_project/site.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

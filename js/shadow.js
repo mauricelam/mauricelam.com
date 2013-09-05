@@ -1,10 +1,5 @@
-//<= Shadow
-
-var Shadow = {};
-
-(function () {
-
-    Shadow.drawShadow = function (image, width, height) {
+var Shadow = {
+    drawShadow: function (image, width, height) {
         var canvas = document.createElement('canvas');
         image.addEventListener('load', function () {
             canvas.style.width  = width + 'px';
@@ -24,8 +19,7 @@ var Shadow = {};
             context.globalAlpha = 1.0;
             context.globalCompositeOperation = 'source-over';
         }, false);
-    canvas.classList.add('project-image-shadow');
-    return canvas;
-    };
-
-}());
+        canvas.classList.add('project-image-shadow');
+        return canvas;
+    }
+};

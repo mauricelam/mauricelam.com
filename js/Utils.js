@@ -11,9 +11,32 @@ var Utils = {};
      **********/
 
     Modernizr.cssPrefixed = function (prop) {
+        prop = prop.replace(/-([a-z])/gi, function(str, m1) { return m1.toUpperCase(); });
         var prefixed = Modernizr.prefixed(prop);
         return prefixed && prefixed.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
     };
+
+    Modernizr.addTest('preserve3d', function () {
+        var prop = Modernizr.cssPrefixed('transform-style');
+        var val = 'preserve-3d';
+        var cssText = '#modernizr { ' + prop + ': ' + val + '; }';
+        var ret;
+
+        Modernizr.testStyles(cssText, function (el, rule) {
+            ret = window.getComputedStyle ? getComputedStyle(el, null).getPropertyValue(prop) : '';
+        });
+
+        return (ret === val);
+    });
+
+    var transEndEventNames = {
+        'WebkitTransition' : 'webkitTransitionEnd',
+        'MozTransition'    : 'transitionend',
+        'OTransition'      : 'oTransitionEnd',
+        'msTransition'     : 'MSTransitionEnd',
+        'transition'       : 'transitionend'
+    };
+    Modernizr.transitionEnd = transEndEventNames[ Modernizr.prefixed('transition') ];
 
     /**********
      * Prefixed properties
@@ -44,6 +67,7 @@ var Utils = {};
 
     var pDefinition = {
         get: function () {
+            // use dash prefix to avoid collision
             if (!this['-style'])
                 Object.defineProperty(this, '-style', { 'value': new CSSPrefixer(this) });
             return this['-style'];
@@ -204,24 +228,5 @@ var Utils = {};
         }
         return delta;
     };
-
-    /**********
-     * Function binding
-     **********/
-
-    var bindFunction = function () {
-        for (var i = 0, count = arguments.length; i < count; i++) {
-            var method = arguments[i];
-            if (this['$' + method] === undefined) {
-                this['$' + method] = this[method].bind(this);
-            }
-
-            if (arguments.length === 1) {
-                return this['$' + method];
-            }
-        }
-    };
-
-    Object.defineProperty(Object.prototype, '$', { 'value': bindFunction });
 
 }());

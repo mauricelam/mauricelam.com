@@ -2,7 +2,8 @@
     "id":"abm",
     "name":"Awesome Bookmarks",
     "types":{
-    	"chromeextension":"https://chrome.google.com/webstore/detail/faonjcpbmjjkknfgoajmjadgdimkhacm"
+    	"chromeextension":"https://chrome.google.com/webstore/detail/faonjcpbmjjkknfgoajmjadgdimkhacm",
+        "github":"https://github.com/mauricelam/AwesomeBookmarks"
     },
     "description":"Awesome Bookmarks is a bookmarks bar on demand: you are always one click away from your bookmarks bar without your screen real estate being taken up. You can also quickly search through all your bookmarks, and show notifications with no.tify. "
 }

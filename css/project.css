@@ -3,11 +3,11 @@
     z-index: 999999;
     white-space: nowrap;
 
-    -webkit-transform: translate3d(0, 150px, 2px);
-    -moz-transform: translate3d(0, 150px, 2px);
-    -o-transform: translate3d(0, 150px, 2px);
-    -ms-transform: translate3d(0, 150px, 2px);
-    transform: translate3d(0, 150px, 2px);
+    -webkit-transform: translate3d(0, 60px, 2px);
+    -moz-transform: translate3d(0, 60px, 2px);
+    -o-transform: translate3d(0, 60px, 2px);
+    -ms-transform: translate3d(0, 60px, 2px);
+    transform: translate3d(0, 60px, 2px);
 
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
@@ -29,8 +29,6 @@
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
-
-    -ms-transform: translate(0, 150px);
 }
 
 .project.selected > .project-image {
@@ -43,6 +41,13 @@
 }
 
 .project.selected > .project-image-shadow {
+    -webkit-transform: translate3d(0,-20px,0) scale(1.2);
+    -moz-transform: translate3d(0,-20px,0) scale(1.2);
+    -o-transform: translate3d(0,-20px,0) scale(1.2);
+    -ms-transform: translate3d(0,-20px,0) scale(1.2);
+    transform: translate3d(0,-20px,0) scale(1.2);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+    filter: alpha(opacity=10);
     opacity: 0.1;
 }
 
@@ -57,8 +62,15 @@
     width: 100%;
     font-size: 30px;
     font-weight: normal;
-    color: #E3E3E3;
-    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    color: #AAAAAA;
+    text-shadow: 0 1px 0 rgba(255,255,255,1), 0 -1px 0 rgba(0,0,0,.6);
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: default;
 }
 
 .project-image {
@@ -91,16 +103,16 @@
     -ms-transform: translate3d(0,3px,0);
     transform: translate3d(0,3px,0);
 
-    -webkit-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    -ms-transition: opacity 0.5s;
-    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    -moz-transition: opacity 0.5s, -moz-transform 0.5s;
+    -o-transition: opacity 0.5s, -o-transform 0.5s;
+    -ms-transition: opacity 0.5s, -ms-transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
 }
 
 /*#tabletop.blurred .project:not(.selected) > .project-image, */
 /*#tabletop.blurred .project:not(.selected) > .project-image-shadow {*/
     /* Blur is too bad in quality. Disable for now */
-    /* -webkit-filter: blur(2.5px); */ /* the blur value is low because the anti-aliasing effect is not good */
+     /*-webkit-filter: blur(2.5px); */
     /* -moz-filter: blur(2.5px); */
 /*}*/

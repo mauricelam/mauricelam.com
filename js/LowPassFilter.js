@@ -1,4 +1,6 @@
-var LowPassFilter = function () { this.init.apply(this, arguments); };
+//=> JP
+
+var LowPassFilter = function () { JP.object(this, arguments); };
 
 LowPassFilter.prototype = new (function () {
     LowPassFilter.SMOOTHING = 0.5;

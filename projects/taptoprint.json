@@ -2,7 +2,8 @@
     "id":"taptoprint",
     "name":"TapToPrint",
     "types":{
-    	"androidapp":"https://sites.google.com/site/taptoprintnfc/"
+    	"link":"https://sites.google.com/site/taptoprintnfc/",
+        "github":"https://github.com/mauricelam/TapToPrint"
     },
     "description":"TapToPrint is an Android application for use on a printer. It lets the user print to a virtual printer on Google Cloud Print, and then select the physical printer by tapping a NFC tag onto the printer. Think of a printer vending machine that can identify you, fetch the print job and charge for your printing in a single tap. <br /><br /> Oh, and did I tell you it won the Google GSA development competition?"
 }

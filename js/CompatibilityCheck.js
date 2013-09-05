@@ -1,3 +1,5 @@
+//=> Modernizr
+
 var CompatibilityCheck = {};
 
 (function() {
