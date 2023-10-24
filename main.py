@@ -7,9 +7,7 @@ class MainPage(webapp.RequestHandler):
 	def get(self):
 		self.response.headers['Content-Type'] = 'text/html'
 
-		template_values = {
-			'hi':'hi'
-		}
+		template_values = {}
 
 		path = os.path.join(os.path.dirname(__file__), 'site.html')
 		self.response.out.write(template.render(path, template_values))
