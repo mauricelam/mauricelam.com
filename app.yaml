@@ -23,4 +23,5 @@ handlers:
   static_dir: library
 
 - url: /.*
-  script: main.py
+  static_files: site.html
+  upload: site.html
